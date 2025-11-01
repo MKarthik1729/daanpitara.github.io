@@ -14,6 +14,7 @@ import Blogs from "./components/Blogs";
 import SignUp from "./components/SignUp";
 import Testimonials from "./components/Footer/Testimonials";
 import About from "./components/About";
+import NotFoundPage from "./components/NotFound";
 
 function App() {
   return (
@@ -27,7 +28,7 @@ function App() {
           <Route path="/blogs" element={<Blogs />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/about" element={<About />} />
-          <Route path="*" element={<p>Not found</p>} />
+          <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>
     </Router>

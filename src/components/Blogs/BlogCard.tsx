@@ -17,12 +17,12 @@ const Card: React.FC<CardProps> = ({ img, heading, date, readTime, readMoreLink 
   });
 
   return (
-    <div className="flex flex-col bg-white rounded-lg shadow-md overflow-hidden border border-gray-200 hover:shadow-lg transition-shadow duration-300 bg-gray-50 ">
+    <div className="flex flex-col bg-white rounded-2xl shadow-md overflow-hidden border border-gray-200 hover:shadow-lg transition-shadow duration-300 bg-gray-50 ">
       <div className="overflow-hidden">
         <img
           src={img}
           alt={heading}
-          className="w-full h-68 object-cover transform transition-transform duration-300 hover:scale-130"
+          className="w-full h-80 object-cover transform transition-transform duration-300 hover:scale-130"
         />
       </div>
 
