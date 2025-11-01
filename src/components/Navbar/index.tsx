@@ -38,7 +38,7 @@ export default function Navbar() {
         <Link to="/fund-form" className="hover:text-brand-blue transition-colors duration-200">Fundraiser Form</Link>
         <Link to="/faqs" className="hover:text-brand-blue transition-colors duration-200">FAQ's</Link>
         <Link to="/blogs" className="hover:text-brand-blue transition-colors duration-200">Blogs</Link>
-        {/* <Link to="/about" className="hover:text-brand-blue transition-colors duration-200">About us</Link> */}
+        <Link to="/about" className="hover:text-brand-blue transition-colors duration-200">About us</Link>
       </div>
 
       {/* Desktop Sign Up */}
@@ -68,7 +68,7 @@ export default function Navbar() {
             <Link to="/fund-form" className="py-2 hover:text-brand-blue transition-colors duration-200" onClick={() => setIsOpen(false)}>Fundraiser Form</Link>
             <Link to="/faqs" className="py-2 hover:text-brand-blue transition-colors duration-200" onClick={() => setIsOpen(false)}>FAQ's</Link>
             <Link to="/blogs" className="py-2 hover:text-brand-blue transition-colors duration-200" onClick={() => setIsOpen(false)}>Blogs</Link>
-            {/* <Link to="/about" className="py-2 hover:text-brand-blue transition-colors duration-200" onClick={() => setIsOpen(false)}>About us</Link> */}
+            <Link to="/about" className="py-2 hover:text-brand-blue transition-colors duration-200" onClick={() => setIsOpen(false)}>About us</Link>
             <div onClick={() => setIsOpen(false)}>
               <HighlightButton to="/signup" text="Sign Up" />
             </div>

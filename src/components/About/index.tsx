@@ -1,6 +1,6 @@
 import AboutUs from './AboutUs';
 import Mission from './Mission';
-import HowWeWork from './HowWeWork';
+// import HowWeWork from './HowWeWork';
 import Principles from './Principles';
 import Vision from './Vision';
 
@@ -10,7 +10,7 @@ export default function About() {
         <AboutUs />
         <Mission />
         <Vision />
-        <HowWeWork />
+        {/* <HowWeWork /> */}
         <Principles />
     </>
   );
