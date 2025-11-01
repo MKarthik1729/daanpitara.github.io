@@ -1,6 +1,6 @@
 import Tag from "@/assets/HeadingText/Tag";
 import SectionHeading from "@/assets/HeadingText/SectionHeading";
-import HighlightButton from "@/assets/ButtonDesigns/HighlightButton";
+// import HighlightButton from "@/assets/ButtonDesigns/HighlightButton";
 import {
   HandsClappingIcon,
   StarIcon,
