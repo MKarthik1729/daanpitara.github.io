@@ -27,7 +27,7 @@ export default function SignupForm() {
 
   // Step 2 refs
   const ngoNameRef = useRef<HTMLInputElement>(null);
-  const ngoCategoryRef = useRef<HTMLInputElement>(null);
+  const ngoCategoryRef = useRef<HTMLSelectElement>(null);
   const passwordRef = useRef<HTMLInputElement>(null);
   const confirmPasswordRef = useRef<HTMLInputElement>(null);
 
