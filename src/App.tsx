@@ -41,7 +41,7 @@ function BasicLayout() {
     <div className="px-4 sm:px-6 md:px-8 lg:px-pd-lg">
       <Navbar />
       <Outlet />
-      <Testimonials />
+      {/* <Testimonials /> */}
       {/* Remove padding for the footer */}
       <div className="-mx-4 sm:-mx-6 md:-mx-8 lg:-mx-pd-lg">
         <Footer />

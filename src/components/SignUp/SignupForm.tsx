@@ -13,6 +13,7 @@ import {
 import SubmitButton from "@/assets/ButtonDesigns/SubmitButton";
 import { createNGOUser } from '@/assets/Services/users';
 import type { CreateNGOUserParams } from '@/assets/Services/users';
+import DropdownField from "@/assets/theme/DropdownField";
 
 export default function SignupForm() {
   const [step, setStep] = useState(1);
@@ -35,6 +36,25 @@ export default function SignupForm() {
   const phoneOtpRef = useRef<HTMLInputElement>(null);
 
   const stepTitles = ["Personal Information", "NGO Details", "Verify OTP"];
+
+const ngoCategories = [
+  "Education & Literacy",
+  "Health & Medical Care",
+  "Women Empowerment",
+  "Child Welfare & Protection",
+  "Environment & Climate Action",
+  "Disability & Special Needs",
+  "Rural Development",
+  "Animal Welfare",
+  "Old Age & Senior Citizen Support",
+  "Poverty Alleviation & Livelihood",
+  "Human Rights & Legal Aid",
+  "Disaster Relief & Rehabilitation",
+  "Arts, Culture & Heritage Conservation",
+  "Tribal & Indigenous Community Support",
+  "Blood, Organ & Tissue Donation",
+];
+
 
   // 🧠 Validation Functions
   const validateStep1 = () => {
@@ -95,12 +115,6 @@ const data: CreateNGOUserParams = {
 };
 
 
-      //     name: 'John Doe',
-      // phone_no: '1234567890',
-      // email: 'john@example.com',
-      // password: 'securePassword123',
-      // ngo_name: 'Helping Hands',
-      // ngo_category: 'Health',
           console.log("✅ Signup Data (Step 1 + Step 2):", data);
     try {
       const result = await createNGOUser(data);
@@ -176,6 +190,7 @@ const data: CreateNGOUserParams = {
           placeholder="+91 98765 43210"
           icon={<PhoneIcon size={20} />}
           error={errors.phone}
+          type="number"
         />
         <SubmitButton submit={handleNext} text="Next" />
       </div>
@@ -189,10 +204,13 @@ const data: CreateNGOUserParams = {
           icon={<BuildingsIcon size={20} />}
           error={errors.ngoName}
         />
-        <InputField
+        <DropdownField
           ref={ngoCategoryRef}
           text="NGO Category:"
-          placeholder="Education / Health"
+          name="ngoCategory"
+          options={ngoCategories}
+          // value={formData.ngoCategory}
+          // onChange={handleChange}
           icon={<TagIcon size={20} />}
           error={errors.ngoCategory}
         />
