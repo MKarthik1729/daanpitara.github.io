@@ -110,7 +110,7 @@ const data: CreateNGOUserParams = {
   email: emailRef.current?.value || '',
   phone_no: phoneRef.current?.value || '',
   ngo_name: ngoNameRef.current?.value || '',
-  ngo_category: ngoCategoryRef.current?.value || undefined, // optional
+  ngo_category: ngoCategoryRef.current?.value || '', // optional
   password: passwordRef.current?.value || '',
 };
 

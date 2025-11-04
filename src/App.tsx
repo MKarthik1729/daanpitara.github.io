@@ -12,7 +12,7 @@ import Fundraiser from "./components/Fundraiser";
 import Faqs from "./components/Faqs";
 import Blogs from "./components/Blogs";
 import SignUp from "./components/SignUp";
-import Testimonials from "./components/Footer/Testimonials";
+// import Testimonials from "./components/Footer/Testimonials";
 import About from "./components/About";
 import NotFoundPage from "./components/NotFound";
 
