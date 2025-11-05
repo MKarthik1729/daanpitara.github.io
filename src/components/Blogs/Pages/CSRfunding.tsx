@@ -5,6 +5,10 @@ export const csrFundingContentData = [
     text: "CSR Funding for NGOs: A Comprehensive Guide to Attracting Corporate Support",
   },
   {
+    type: "image",
+    text: "/post/2.png",
+  },
+  {
     type: "passage",
     text: "For many NGOs in India, securing steady funding is one of the biggest challenges in sustaining impactful work. With Corporate Social Responsibility (CSR) emerging as a vital part of business ethics, companies are increasingly looking to collaborate with credible NGOs that deliver measurable results. However, in a space crowded with initiatives and limited budgets, NGOs must understand how to stand out, communicate their value, and build trust with potential partners.",
   },

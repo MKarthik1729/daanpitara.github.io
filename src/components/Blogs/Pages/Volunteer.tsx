@@ -5,6 +5,10 @@ export const volunteerContentData = [
     text: "A Day in the Life of an NGO Volunteer: Creating Real Change with DaanPitara",
   },
   {
+    type: "image",
+    text: "/post/1.png",
+  },
+  {
     type: "passage",
     text: "Volunteering for an NGO is more than just lending a helping hand; it’s about becoming part of a mission that touches lives and strengthens communities. Each day brings new experiences, challenges, and opportunities to make a difference. With digital tools and organized support systems, the way volunteers work is changing fast. DaanPitara stands at the heart of this transformation, helping volunteers and NGOs connect, collaborate, and create measurable impact across India.",
   },

@@ -5,6 +5,10 @@ export const csrContentData = [
     text: "The Digital Transformation of CSR in India: How DaanPitara is Empowering Corporate Social Responsibility",
   },
   {
+    type: "image",
+    text: "/post/3.png",
+  },
+  {
     type: "passage",
     text: "The landscape of Corporate Social Responsibility (CSR) in India is undergoing a massive transformation. Once viewed as a compliance requirement, CSR has now become an integral part of business strategy driven by digital tools, data analytics, and transparency. As technology continues to reshape every sector, companies are realizing that digital transformation is the key to creating measurable, scalable, and sustainable impact. This is where DaanPitara stands out, empowering organizations to embrace innovation and drive social change more effectively.",
   },

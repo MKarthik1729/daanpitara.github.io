@@ -10,13 +10,13 @@ interface CardProps {
 
 const Card: React.FC<CardProps> = ({ img, label = "News", heading, description, readMoreLink }) => {
   return (
-    <div className="flex flex-col bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300 border border-gray-200 max-w-sm">
+    <div className="flex flex-col bg-white  overflow-hidden hover:shadow-md transition-shadow duration-300  max-w-sm">
       {/* Image */}
       <div className="bg-gray-100">
         <img
           src={img}
           alt={heading}
-          className="w-full h-48 object-cover rounded-t-2xl"
+          className="w-full h-48 object-cover"
         />
       </div>
 

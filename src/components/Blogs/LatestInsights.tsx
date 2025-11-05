@@ -2,7 +2,8 @@ import React from "react";
 import { motion, easeInOut } from "framer-motion";
 import type { Variants } from "framer-motion";
 import Card from "./BlogDesign2";
-import LatestInsights from "./LatestInsights";
+import TopicHeading from "@/assets/HeadingText/TopicHeading";
+import { Link } from "react-router-dom";
 
 const blogData = [
   {
@@ -31,15 +32,6 @@ const blogData = [
       "Volunteering for an NGO is more than just lending a helping hand; it’s about becoming part of a mission that touches lives and strengthens communities.",
     readMoreLink: "/blogs/life-of-volunteer",
   },
-  {
-    img: "/post/2.png",
-    label: "Insights",
-    heading:
-      "CSR Funding for NGOs: A Comprehensive Guide to Attracting Corporate Support",
-    description:
-      "For many NGOs in India, securing steady funding is one of the biggest challenges in sustaining impactful work.",
-    readMoreLink: "/blogs/csr-funding",
-  },
 ];
 
 const containerVariants: Variants = {
@@ -64,12 +56,11 @@ const cardVariants: Variants = {
   },
 };
 
-const RecentPosts: React.FC = () => {
+const LatestInsights: React.FC = () => {
   return (
-    <div className="p-8 min-h-screen bg-gradient-to-b from-gray-50 via-white to-gray-100">
-      <LatestInsights />
+    <div className="p-8 min-h-screen bg-gradient-to-b from-gray-50 via-white to-gray-100 mb-10">
       <h1 className="text-4xl font-bold text-gray-900 text-center mb-12">
-        Recent Posts
+        Latest Insights
       </h1>
 
       <motion.div
@@ -78,7 +69,7 @@ const RecentPosts: React.FC = () => {
         initial="hidden"
         animate="show"
       >
-        {blogData.map((blog, index) => (
+        {blogData.slice(0, 2).map((blog, index) => (
           <motion.div
             key={index}
             variants={cardVariants}
@@ -89,9 +80,30 @@ const RecentPosts: React.FC = () => {
             <Card {...blog} />
           </motion.div>
         ))}
+
+        <motion.div>
+          <TopicHeading heading="Highlights" />
+          {blogData.map((blog, index) => (
+            <motion.div
+              key={index}
+              variants={cardVariants}
+              whileHover={{ scale: 1.03, transition: { duration: 0.2 } }}
+              whileTap={{ scale: 0.98 }}
+              className="my-4 border-b pb-2"
+            >
+              <p className="text-blue-600 text-lg font-medium mb-2">{blog.label}</p>
+              <Link
+                className="text-lg font-semibold text-gray-900 leading-snug mb-3 hover:underline hover:text-blue-600"
+                to={blog.readMoreLink || "#"}
+              >
+                {blog.heading}
+              </Link>
+            </motion.div>
+          ))}
+        </motion.div>
       </motion.div>
     </div>
   );
 };
 
-export default RecentPosts;
+export default LatestInsights;

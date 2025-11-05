@@ -8,7 +8,7 @@ export default function Mission() {
     <div className="lg:flex mt-20 items-start justify-center gap-10 ">
       {/* Left Images */}
       <div className="flex justify-center mx-20">
-        <DoubleImage rightImage={"/story1.jpg"} leftImage={"/story2.avif"} />
+        <DoubleImage rightImage={"/story1.jpg"} leftImage={"/support.jpg"} />
       </div>
 
       {/* Right Content */}

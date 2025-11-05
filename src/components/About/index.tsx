@@ -1,9 +1,9 @@
 import AboutUs from './AboutUs';
-import Mission from './Mission';
+import Mission from './OurStory';
 // import HowWeWork from './HowWeWork';
 import Principles from './WhatWeDO';
 import Vision from './Vision';
-import OurTeam from './OurTeam';
+// import OurTeam from './OurTeam';
 
 export default function About() {
   return (
@@ -12,7 +12,7 @@ export default function About() {
         <Mission />
         <Principles />
         <Vision />
-        <OurTeam />
+        {/* <OurTeam /> */}
 
     </>
   );

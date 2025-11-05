@@ -5,6 +5,10 @@ export const AiLeverage = [
     text: "How DaanPitara Can Leverage AI to Create a Greater Social Impact",
   },
   {
+    type: "image",
+    text: "/post/4.png",
+  },
+  {
     type: "passage",
     text: "Artificial Intelligence has evolved from a technological advancement into a powerful instrument for solving real-world challenges. From climate prediction to healthcare access, AI for social impact is transforming the way social change is created and sustained. NGOs and social enterprises are now exploring how machine learning, data analytics, and automation can help them reach more people efficiently. DaanPitara is at the forefront of this change, working to integrate AI-driven strategies that enhance transparency, accountability, and long-term social progress.",
   },
