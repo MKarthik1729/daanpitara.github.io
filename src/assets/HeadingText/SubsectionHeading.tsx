@@ -6,8 +6,11 @@ interface HeadingProps {
 
 const Heading: React.FC<HeadingProps> = ({ heading }) => {
     return (
-        <div className="flex content-center items-center w-full text-center">
-            <h1 className="mx-auto text-center text-xl font-bold font-open-type font-family-italic">
+        <div className="content-center items-center w-full text-center font-gray-400">
+            <h1 className="mx-auto text-center text-xl font-bold font-family-italic font-gray-400"
+            
+            style={{color:"gray"}}
+            >
                 {heading}
             </h1>
         </div>

@@ -44,8 +44,7 @@ const Footer: React.FC = () => {
         </div>
 
         {/* Useful Links Section */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-10">
-          {/* Pages */}
+        {/* <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-10">
           <div>
             <h4 className="font-semibold text-indigo-400 mb-3">Pages</h4>
             <ul className="space-y-2 text-sm">
@@ -56,7 +55,6 @@ const Footer: React.FC = () => {
             </ul>
           </div>
 
-          {/* Policies */}
           <div>
             <h4 className="font-semibold text-indigo-400 mb-3">Policies</h4>
             <ul className="space-y-2 text-sm">
@@ -67,7 +65,6 @@ const Footer: React.FC = () => {
             </ul>
           </div>
 
-          {/* Advertisement */}
           <div>
             <h4 className="font-semibold text-indigo-400 mb-3">Advertisement</h4>
             <ul className="space-y-2 text-sm">
@@ -78,7 +75,6 @@ const Footer: React.FC = () => {
             </ul>
           </div>
 
-          {/* Support */}
           <div>
             <h4 className="font-semibold text-indigo-400 mb-3">Support</h4>
             <ul className="space-y-2 text-sm">
@@ -88,7 +84,7 @@ const Footer: React.FC = () => {
               <li><a href="#" className="hover:text-indigo-400">Table Management</a></li>
             </ul>
           </div>
-        </div>
+        </div> */}
 
         {/* Footer Bottom */}
         <div className="border-t border-gray-800 pt-4 text-center text-xs text-gray-500">
