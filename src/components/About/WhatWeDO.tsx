@@ -32,7 +32,7 @@ export default function About() {
 
 
   return (
-    <div className="text-center py-6 px-5 bg-gray-50 flex flex-col items-center gap-8">
+    <div className="text-center py-6 px-5 bg-gray-50 flex flex-col items-center gap-8 sm:pt-10">
       {/* <Tag text="What we do" /> */}
               <h1 className="text-4xl font-bold text-gray-900 text-center">
           What we do

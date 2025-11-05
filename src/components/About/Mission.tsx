@@ -12,7 +12,7 @@ export default function Mission() {
       </div>
 
       {/* Right Content */}
-      <div className="flex flex-col space-y-10 max-w-xl pt-20">
+      <div className="flex flex-col space-y-10 max-w-xl lg:pt-20 sm:pt-8">
         {/* Mission Tag */}
         {/* <Tag text="Our Story" /> */}
 

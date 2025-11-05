@@ -8,7 +8,7 @@ import SubsectionHeading from "@/assets/HeadingText/SubsectionHeading";
 export default function Mission() {
   return (
     <div className="lg:flex mt-20 items-start justify-center gap-10 ">
-      <div className="flex flex-col space-y-10 max-w-xl justify-center pt-20">
+      <div className="flex flex-col space-y-10 max-w-xl justify-center lg:pt-20 sm:pt-5">
         {/* Mission Tag */}
         {/* <Tag text="Our Vision" /> */}
 
