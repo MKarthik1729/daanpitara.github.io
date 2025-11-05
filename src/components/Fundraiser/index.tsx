@@ -67,8 +67,17 @@ export default function CsrConnectionForm() {
     if (step === 1) {
       if (!nameRef.current?.value.trim()) newErrors.name = "Name / Organization is required";
       if (!contactRef.current?.value.trim()) newErrors.contact = "Contact person is required";
-      if (!emailRef.current?.value.trim()) newErrors.email = "Email is required";
-      if (!phoneRef.current?.value.trim()) newErrors.phone = "Phone is required";
+      // if (!emailRef.current?.value.trim()) newErrors.email = "Email is required";
+
+    const email = emailRef.current?.value.trim();
+    if (!email) newErrors.email = "Email is required";
+    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) newErrors.email = "Enter a valid email";
+
+    const phone = phoneRef.current?.value.trim();
+    if (!phone) newErrors.phone = "Phone number is required";
+    else if (!/^\+?[0-9\s-]{8,15}$/.test(phone)) newErrors.phone = "Enter a valid phone number";
+
+      // if (!phoneRef.current?.value.trim()) newErrors.phone = "Phone is required";
       if (!locationRef.current?.value.trim()) newErrors.location = "Location is required";
     }
 
@@ -193,6 +202,7 @@ const formData = {
             placeholder="example@email.com"
             icon={<EnvelopeSimpleIcon size={20} />}
             error={errors.email}
+            
           />
           <InputField
             ref={phoneRef}
@@ -200,6 +210,7 @@ const formData = {
             placeholder="+91-XXXXXXXXXX"
             icon={<PhoneIcon size={20} />}
             error={errors.phone}
+            type="number"
           />
           <InputField
             ref={locationRef}
