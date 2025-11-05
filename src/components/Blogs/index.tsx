@@ -66,7 +66,7 @@ const cardVariants: Variants = {
 
 const RecentPosts: React.FC = () => {
   return (
-    <div className="p-8 min-h-screen bg-gradient-to-b from-gray-50 via-white to-gray-100">
+    <div className="lg:p-8 sm:p-2 min-h-screen bg-gradient-to-b from-gray-50 via-white to-gray-100">
       <LatestInsights />
       <h1 className="text-4xl font-bold text-gray-900 text-center mb-12">
         Recent Posts
