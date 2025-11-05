@@ -1,20 +1,22 @@
 import ImageCard from "@/assets/ImageDisplay/ImageCard";
 import Globe from "@/assets/Images/globe.jpg";
 import HighlightButton from "@/assets/ButtonDesigns/HighlightButton";
+import TopicHeading from "@/assets/HeadingText/TopicHeading";
+import TopicDesc from "@/assets/HeadingText/TopicDesc";
 
 export default function Landing() {
   return (
     <div className="flex flex-col lg:flex-row gap-8 lg:gap-16 items-center lg:items-stretch p-6 lg:p-12">
       {/* Left Section */}
       <div className="flex flex-col justify-center flex-1 text-center lg:text-left space-y-4 lg:space-y-5 max-w-xl">
-        <h2 className="text-lg sm:text-xl lg:text-xl font-semibold text-gray-800">
-          Trusted Digital Platform for NGOs & Fundraising
-        </h2>
-        <p className="text-base sm:text-lg lg:text-lg text-gray-700 leading-relaxed">
+        <TopicHeading heading="Trusted Digital Platform for NGOs & Fundraising" />
+        {/* <p className="text-base sm:text-lg lg:text-lg text-gray-700 leading-relaxed">
           DaanPitara empowers NGOs worldwide to grow digitally, raise funds, and build top CSR funding
           opportunities through digital branding, fundraising tools, and transparent donor engagement for
           lasting impact.
-        </p>
+        </p> */}
+
+        <TopicDesc heading = "DaanPitara empowers NGOs worldwide to grow digitally, raise funds, and build top CSR funding opportunities through digital branding, fundraising tools, and transparent donor engagement for lasting impact."/>
 
         {/* Highlight Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-2">

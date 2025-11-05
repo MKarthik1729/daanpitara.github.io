@@ -6,8 +6,8 @@ import FeaturesSection from "./WhyUs";
 import { featuresData } from "./WhyUs";
 import { facilitiesData } from "./facilitiesData";
 import { servicesData } from "./servicesData";
-import SectionHeading from "@/assets/HeadingText/SectionHeading";
-import SubHeading from "@/assets/HeadingText/SubsectionHeading";
+// import SectionHeading from "@/assets/HeadingText/SectionHeading";
+// import SubHeading from "@/assets/HeadingText/SubsectionHeading";
 const tabs = [
   { 
     id: "features", 
@@ -35,9 +35,9 @@ export default function FeaturesTabs() {
   const [activeTab, setActiveTab] = useState("features");
 
   return (
-    <div className="w-full py-10 text-gray-600">
-      <SectionHeading heading="Why People Trust Us" />
-      <SubHeading heading="Delivering success through strategy, innovation, and measurable impact across every digital platform." />
+    <div className="w-full py-10 text-gray-600 text-center" >
+      {/* <SectionHeading heading="Why People Trust Us" /> */}
+      {/* <SubHeading heading="Delivering success through strategy, innovation, and measurable impact across every digital platform." /> */}
       {/* Tabs */}
       <div className="relative mb-10">
         {/* Mobile: horizontal scroll | Desktop: centered row */}

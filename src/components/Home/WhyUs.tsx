@@ -1,6 +1,9 @@
 // import SectionHeading from "@/assets/Headings/SectionHeading";
 import type { JSX } from "react";
-
+import TopicHeading from "@/assets/HeadingText/TopicHeading";
+import CardHeading from "@/assets/HeadingText/CardHeading";
+import CardDesc from "@/assets/HeadingText/CardDesc";
+import TopicDesc from "@/assets/HeadingText/TopicDesc";
 // src/data/featuresData.tsx
 
 import {
@@ -13,6 +16,7 @@ import {
   // FileMedicalIcon,
   UsersThreeIcon,
 } from "@phosphor-icons/react";
+// import Card from "../Blogs/TextBlog";
 
 export interface FeatureItem {
   icon: JSX.Element;
@@ -86,8 +90,10 @@ export default function FeaturesSection({
     <section className="px-8 py-8  bg-gray-50">
       {/* Title and subtitle */}
       <div className="max-w-7xl mx-auto text-center mb-12">
-        <h2 className="text-3xl font-bold text-gray-800 mb-3">{title}</h2>
-        <p className="text-gray-600 max-w-2xl mx-auto">{subtitle}</p>
+        {/* <h2 className="text-3xl font-bold text-gray-800 mb-3">{title}</h2> */}
+        <TopicHeading heading={title} />
+        {/* <p className="text-gray-600 max-w-2xl mx-auto">{subtitle}</p> */}
+        <TopicDesc heading={subtitle} className="mt-5" />
       </div>
 
       {/* Grid layout */}
@@ -100,10 +106,13 @@ export default function FeaturesSection({
             <div className="mb-4 p-3 bg-blue-50 rounded-full">
               {feature.icon}
             </div>
-            <h3 className="text-lg font-semibold text-gray-800 mb-2">
+            {/* <h3 className="text-lg font-semibold text-gray-800 mb-2">
               {feature.heading}
-            </h3>
-            <p className="text-gray-600 text-sm">{feature.description}</p>
+            </h3> */}
+            <CardHeading heading={feature.heading} />
+
+            {/* <p className="text-gray-600 text-sm">{feature.description}</p> */}
+            <CardDesc heading={feature.description} className="mt-5" />
           </div>
         ))}
       </div>

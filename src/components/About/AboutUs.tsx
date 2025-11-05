@@ -4,6 +4,7 @@ import Tag from "@/assets/HeadingText/Tag";
 import ImageCard from "@/assets/ImageDisplay/ImageCard";
 // import Globe from "@/assets/Images/globe.jpg";
 import SubsectionHeading from "@/assets/HeadingText/SubsectionHeading";
+import SectionHeading from "@/assets/HeadingText/SectionHeading";
 
 
 export default function About() {
@@ -11,9 +12,10 @@ export default function About() {
     <div className="text-center my-5 w-full items-center flex flex-col gap-5">
       <Tag text="About Us" />
       {/* <SectionHeading heading="Redefining Giving with Trust and Technology" /> */}
-              <h1 className="text-4xl font-bold text-gray-900 text-center">
-          Redefining Giving with Trust and Technology
-        </h1>
+              {/* <h1 className="text-4xl font-bold text-gray-900 text-center"> */}
+                <SectionHeading heading="Redefining Giving with Trust and Technology" />
+          
+        {/* </h1> */}
       <SubsectionHeading heading="In a world full of causes, DaanPitara stands for one mission: to make generosity smarter, transparent, and truly global." />
       {/* <HighlightButton text="Learn More" /> */}
       <div className="lg:flex lg:flex-row lg:gap-5">
