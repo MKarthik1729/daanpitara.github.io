@@ -14,16 +14,16 @@ const Footer: React.FC = () => {
               {/* Replace src with your logo path */}
               {/* <img src={DaanPitara} alt="DAANPitara Logo" width={80} height={80} /> */}
               <div className="h-20 w-20 overflow-hidden inline-block">
-  <img
-    src={DaanPitara}
-    alt="DaanPitara Logo"
-    className="object-cover scale-125"
-  />
-</div>
+                <img
+                  src={DaanPitara}
+                  alt="DaanPitara Logo"
+                  className="object-cover scale-125"
+                />
+              </div>
               <h2 className="text-2xl font-bold text-white">DaanPitara</h2>
             </div>
             <p className="text-sm mb-4">
-              Operating across India, the USA, UAE, Canada, and Germany, DAANPitara connects global NGOs with fundraiser matchmaking through top NGO digital support services, branding, CSR collaborations, and transparent donor engagement. Together, we’re redefining trust and technology for a better tomorrow.
+              Recognized as the best CSR fundraising platform, DaanPitara connects NGOs and corporates through seamless digital support, impactful campaigns, and transparent donor engagement.
             </p>
 
           </div>
