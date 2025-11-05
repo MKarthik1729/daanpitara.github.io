@@ -2,7 +2,7 @@ import Tag from "@/assets/HeadingText/Tag";
 // import SectionHeading from "@/assets/HeadingText/SectionHeading";
 // import HighlightButton from "@/assets/ButtonDesigns/HighlightButton";
 import ImageCard from "@/assets/ImageDisplay/ImageCard";
-import Globe from "@/assets/Images/globe.jpg";
+// import Globe from "@/assets/Images/globe.jpg";
 import SubsectionHeading from "@/assets/HeadingText/SubsectionHeading";
 
 
@@ -18,16 +18,17 @@ export default function About() {
       {/* <HighlightButton text="Learn More" /> */}
       <div className="lg:flex lg:flex-row lg:gap-5">
         <ImageCard
-          src={Globe}
+          src={"/org2.avif"}
           altImage="/images/fallback.png"
           altText="Globe illustration"
           width="27vw"
           height="80vh"
           // className="md:h-30"
         // className="rounded-full border border-gray-300 w-48 h-48 sm:w-56 sm:h-56 lg:w-80 lg:h-80 object-cover shadow-md"
+          className="lg:h-120"
         />
         <ImageCard
-          src={Globe}
+          src={"/org1.jpg"}
           altImage="/images/fallback.png"
           altText="Globe illustration"
           width="27vw"
@@ -35,10 +36,11 @@ export default function About() {
           className="my-10"
         />
         <ImageCard
-          src={Globe}
+          src={"/org3.jpg"}
           altImage="/images/fallback.png"
           altText="Globe illustration"
           width="27vw"
+    
         // className="rounded-full borde  r border-gray-300 w-48 h-48 sm:w-56 sm:h-56 lg:w-80 lg:h-80 object-cover shadow-md"
         />
       </div>

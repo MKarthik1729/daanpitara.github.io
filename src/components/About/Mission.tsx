@@ -1,5 +1,5 @@
 import DoubleImage from "@/assets/ImageDisplay/DoubleImage";
-import Globe from "@/assets/Images/globe.jpg";
+// import Globe from "@/assets/Images/globe.jpg";
 // import Tag from "@/assets/HeadingText/Tag";
 // import { HeartIcon, HandshakeIcon, GlobeHemisphereWestIcon } from "@phosphor-icons/react";
 
@@ -8,7 +8,7 @@ export default function Mission() {
     <div className="lg:flex mt-20 items-start justify-center gap-10 ">
       {/* Left Images */}
       <div className="flex justify-center mx-20">
-        <DoubleImage leftImage={Globe} rightImage={Globe} />
+        <DoubleImage rightImage={"/story1.jpg"} leftImage={"/story2.avif"} />
       </div>
 
       {/* Right Content */}

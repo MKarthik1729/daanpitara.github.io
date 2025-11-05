@@ -1,5 +1,5 @@
 // import DoubleImage from "@/assets/ImageDisplay/DoubleImage";
-import Globe from "@/assets/Images/globe.jpg";
+// import Globe from "@/assets/Images/globe.jpg";
 // import Tag from "@/assets/HeadingText/Tag";
 // import { HeartIcon, HandshakeIcon, GlobeHemisphereWestIcon } from "@phosphor-icons/react";
 import ImageCard from "@/assets/ImageDisplay/ImageCard";
@@ -31,10 +31,10 @@ export default function Mission() {
       </div> */}
             <div className="flex flex-1 items-center justify-center mt-8 lg:mt-0">
         <ImageCard
-          src={Globe}
+          src={"/mission.webp"}
           altImage="/images/fallback.png"
           altText="Globe illustration"
-          className="rounded-full border border-gray-300 w-35 h-35 sm:w-56 sm:h-56 md:w-full lg:w-full lg:h-full object-cover shadow-md"
+          className="rounded-full border border-gray-300 w-35 h-35 sm:w-56 sm:h-56 md:w-full lg:w-full lg:h-full object-cover shadow-md lg:min-h-96"
         />
         </div>
     </div>
