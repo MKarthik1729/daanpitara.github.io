@@ -31,7 +31,7 @@ export default function Mission() {
           </div>
           <div className="flex items-start gap-4">
               <p className="text-gray-700 leading-relaxed">
-                What started as a small initiative in India has now grown into a global network spanning the USA, UAE, Canada, and Germany, helping changemakers raise funds, build credibility, and grow their impact online.
+                What started as a small initiative in India has now grown into a global networking areas, helping changemakers raise funds, build credibility, and grow their impact online.
               </p>
           </div>          
 

@@ -9,7 +9,7 @@ export const url = (): string => {
     prod: "https://daanpitara.onrender.com/api",
   };
 
-  const env = "staging";
+  const env = "prod";
 
   return links[env];
 };
