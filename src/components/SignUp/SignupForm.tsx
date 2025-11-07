@@ -7,8 +7,9 @@ import {
   BuildingsIcon,
   TagIcon,
   LockIcon,
-  KeyIcon,
+
   ArrowLeftIcon,
+  CheckCircleIcon,
 } from "@phosphor-icons/react";
 import SubmitButton from "@/assets/ButtonDesigns/SubmitButton";
 import { createNGOUser } from '@/assets/Services/users';
@@ -31,11 +32,10 @@ export default function SignupForm() {
   const passwordRef = useRef<HTMLInputElement>(null);
   const confirmPasswordRef = useRef<HTMLInputElement>(null);
 
-  // Step 3 refs
-  const emailOtpRef = useRef<HTMLInputElement>(null);
-  const phoneOtpRef = useRef<HTMLInputElement>(null);
 
-  const stepTitles = ["Personal Information", "NGO Details", "Verify OTP"];
+
+
+  const stepTitles = ["Personal Information", "NGO Details", "Successful Registration"];
 
 const ngoCategories = [
   "Education & Literacy",
@@ -128,13 +128,7 @@ const data: CreateNGOUserParams = {
     } 
   };
 
-  const handleVerifyOtp = () => {
-    const otpData = {
-      emailOtp: emailOtpRef.current?.value,
-      phoneOtp: phoneOtpRef.current?.value,
-    };
-    console.log("OTP Data:", otpData);
-  };
+
 
   return (
     <div className="max-w-md w-full p-6 rounded-lg space-y-6 relative bg-white">
@@ -234,20 +228,23 @@ const data: CreateNGOUserParams = {
       </div>
 
       {/* Step 3 */}
-      <div style={{ display: step === 3 ? "block" : "none" }} className="mt-4">
-        <InputField
-          ref={emailOtpRef}
-          text="Email OTP:"
-          placeholder="Enter email OTP"
-          icon={<KeyIcon size={20} />}
-        />
-        <InputField
-          ref={phoneOtpRef}
-          text="Phone OTP:"
-          placeholder="Enter phone OTP"
-          icon={<KeyIcon size={20} />}
-        />
-        <SubmitButton submit={handleVerifyOtp} text="Verify OTP" />
+      <div style={{ display: step === 3 ? "block" : "none" }} className="mt-4 lg:mt-12">
+    <div className="flex flex-col items-center justify-center  bg-white text-gray-800">
+      {/* Sun-like glowing background */}
+      <div className="relative flex items-center justify-center">
+        {/* Sun rays / glow */}
+        <div className="absolute w-32 h-32 bg-yellow-200 rounded-full blur-3xl opacity-60 animate-pulse"></div>
+        <div className="absolute w-40 h-40 bg-yellow-100 rounded-full blur-2xl opacity-50 animate-ping"></div>
+        
+        {/* Blue tick icon */}
+        <CheckCircleIcon size={80} weight="fill" className="text-blue-500 relative z-10" />
+      </div>
+
+      {/* Text below */}
+      <p className="mt-6 text-xl font-semibold text-gray-700">
+        Successfully Registered
+      </p>
+    </div>
       </div>
     </div>
   );
