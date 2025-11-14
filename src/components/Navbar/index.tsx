@@ -16,7 +16,7 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="bg-white py-4 px-6 flex items-center justify-between relative z-50">
+    <nav className="sticky top-0 bg-white py-4 px-6 flex items-center justify-between relative z-50">
       {/* Left: Logo */}
       <div className="text-xl font-bold flex items-center">
         <Link to="/" className="flex items-center">

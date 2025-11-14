@@ -1,36 +1,91 @@
-import ImageCard from "@/assets/ImageDisplay/ImageCard";
-import Globe from "@/assets/Images/globe.jpg";
-import HighlightButton from "@/assets/ButtonDesigns/HighlightButton";
-import TopicHeading from "@/assets/HeadingText/TopicHeading";
-import TopicDesc from "@/assets/HeadingText/TopicDesc";
+// import React from 'react';
+import HighlightButton from '@/assets/ButtonDesigns/HighlightButton';
+import SubmitButton from '@/assets/ButtonDesigns/SubmitButton';
+import ClientAvatars from '@/assets/Hero/ClientAvatars';
+import HeroTitle from '@/assets/HeadingText/HeroTitle';
+import HeroDescription from '@/assets/HeadingText/HeroDescription';
+import Globe from '@/assets/Images/globe.jpg';
+// import DaanPitara from '@/assets/Images/DaanPitara.png';
 
 export default function Landing() {
+  const title = (
+    <>
+      Trusted Digital Platform For NGOs &
+      Fundraising
+    </>
+  );
+  const description =
+    'DaanPitara empowers NGOs across the globe to embrace digital transformation, amplify their social impact, and attract meaningful CSR partnerships. Through powerful digital branding, smart fundraising tools, and transparent donor engagement systems, we help organizations build trust, raise sustainable funds, and create long-lasting change within their communities.';
+  const primaryCta = {
+    text: 'Register Your NGO Now',
+    onClick: () => (window.location.href = '/register'),
+    bgColor: 'var(--Primary, #36B2F1)',
+  };
+  const secondaryCta: { text: string; onClick: () => void; bgColor?: string } = {
+    text: 'Grow With DaanPitara',
+    onClick: () => (window.location.href = '/fund-form'),
+  };
+  const imageSrc = Globe;
+  const avatars = [
+    { src: "./post/1.png" },
+    { src: "./post/2.png" },
+    { src: "./post/3.png" },
+    { src: "./org3.jpg" },
+    { src: "./org1.jpg" },
+  ];
+  const avatarCountLabel = '1.5K';
+
   return (
-    <div className="flex flex-col lg:flex-row gap-6 lg:gap-16 items-center lg:items-stretch p-4 sm:p-6 lg:p-12">
-      {/* Left Section */}
-      <div className="flex flex-col justify-center flex-1 text-center lg:text-left space-y-4 lg:space-y-5 max-w-xl">
-        <TopicHeading heading="Trusted Digital Platform for NGOs & Fundraising" />
+    <div className="w-full lg:px-15 px-5">
+      <section className="flex flex-col lg:flex-row items-center gap-8 lg:gap-40 py-9">
+        <div className="flex max-w-3xl flex-col gap-6">
+          <HeroTitle heading={title} size={40} />
+          <HeroDescription text={description} size={18} no_of_lines={5} />
 
-        <TopicDesc
-          heading="DaanPitara empowers NGOs worldwide to grow digitally, raise funds, and build top CSR funding opportunities through digital branding, fundraising tools, and transparent donor engagement for lasting impact."
-        />
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mt-4">
+            {primaryCta ? (
+            <div className="w-full sm:w-auto">
+                <HighlightButton
+                  to="#"
+                  text={primaryCta.text}
+                  bgColor={primaryCta.bgColor}
+                />
+              </div>
+            ) : null}
+            {secondaryCta ? (
+              <div className="w-full sm:w-auto">
+                <SubmitButton
+                  submit={secondaryCta.onClick || (() => {})}
+                  text={secondaryCta.text}
+                  bgColor={secondaryCta.bgColor}
+                />
+              </div>
+            ) : null}
+          </div>
 
-        {/* Highlight Buttons */}
-        <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start pt-2">
-          <HighlightButton to="/register" text="Register your NGO Now" />
-          <HighlightButton to="/fund-form" text="Grow with DaanPitara" />
+          {avatars.length > 0 ? (
+            <div className="flex items-center gap-4 mt-4">
+              <div
+                className="font-satoshi text-[18px] font-medium leading-[20.813px]"
+                style={{ color: 'var(--Grey-3, #4C4B4B)' }}
+              >
+                Our Happy Clients
+              </div>
+              <ClientAvatars avatars={avatars} countLabel={avatarCountLabel} />
+            </div>
+          ) : null}
         </div>
-      </div>
 
-      {/* Right Section */}
-      <div className="flex flex-1 items-center justify-center mt-6 lg:mt-0 w-full">
-        <ImageCard
-          src={Globe}
-          altImage="/images/fallback.png"
-          altText="Globe illustration"
-          className="rounded-full border border-gray-300 w-40 h-40 sm:w-48 sm:h-48 md:w-64 md:h-64 lg:w-full lg:h-full object-cover shadow-md"
-        />
-      </div>
+        <div className="w-full lg:w-[426px] flex-shrink-0">
+          {imageSrc ? (
+            <img
+              src={imageSrc}
+              alt="hero"
+              className="w-full h-full rounded-lg object-cover shadow-lg"
+            />
+          ) : null}
+        </div>
+      </section>
     </div>
   );
 }

@@ -3,7 +3,8 @@
 @theme   {
   --color-brand-blue: rgb(0, 132, 197);
   --color-star-gold: rgb(249, 188, 23);
-  --color-bg-white: #FFFFFF;
+  --color-bg-white: #FAF9F6;
+  --color-white: #FAF9F6;
   --color-bg-card: #f5faff;  /* light mode card background */
   --color-bg-icon: #edf4ff;  /* light mode icon background */
   --color-txt-black:#000000;
@@ -30,6 +31,7 @@
 
 body {
   font-family: var(--font-satoshi);
+  background-color: var(--color-bg-white);
 }
 
 .font-open-type {
