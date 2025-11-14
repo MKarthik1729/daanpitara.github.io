@@ -119,7 +119,7 @@ const data: CreateNGOUserParams = {
     try {
       const result = await createNGOUser(data);
       // setSuccess(result.message);
-      alert(result.message);
+      // alert(result.message);
       console.log('✅ Created user:', result.user);
       setStep((prev) => prev + 1);
     } catch (err: any) {

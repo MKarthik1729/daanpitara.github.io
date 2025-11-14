@@ -8,7 +8,6 @@ export default function Home() {
   return (
     <>
           <Landing />
-          {/* <WhyUs /> */}
           <SlidingBarWhyUs />
           <OurStory />
           <LatestInsights />
