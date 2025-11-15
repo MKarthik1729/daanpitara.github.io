@@ -4,14 +4,15 @@ interface Props {
   heading: React.ReactNode
   size?: number // pixels
   className?: string
+  color?: string
 }
 
-const HeroTitle: React.FC<Props> = ({ heading, size = 36, className }) => {
+const HeroTitle: React.FC<Props> = ({ color, heading, size = 36, className }) => {
   return (
     <div className={`w-full ${className ? className : ''}`}>
       <h1
         style={{
-          color: '#000',
+          color: color ||'#000',
           fontFamily: 'Satoshi, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial',
           fontStyle: 'normal',
           fontWeight: 500,

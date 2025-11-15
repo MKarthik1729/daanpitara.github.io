@@ -7,14 +7,14 @@ interface AnimatedNavLinkProps {
   text: string;
   /** background color for the button (hex / css variable). default: #fff */
   bgColor?: string;
+  className?: string;
 }
 
-export default function AnimatedNavLink({ to, text, bgColor }: AnimatedNavLinkProps) {
+export default function AnimatedNavLink({ to, text, bgColor, className=""}: AnimatedNavLinkProps) {
   const [hovered, setHovered] = useState(false);
 
   const buttonStyle: React.CSSProperties = {
     display: 'flex',
-    width: 265,
     height: 48,
     padding: 10,
     justifyContent: 'center',
@@ -28,7 +28,7 @@ export default function AnimatedNavLink({ to, text, bgColor }: AnimatedNavLinkPr
   return (
     <Link
       to={to || '#'}
-      className="relative inline-flex overflow-hidden font-medium group"
+      className={`relative inline-flex overflow-hidden font-medium group ${className}`}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       style={buttonStyle}

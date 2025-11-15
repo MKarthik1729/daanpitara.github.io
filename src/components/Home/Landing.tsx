@@ -4,7 +4,7 @@ import SubmitButton from '@/assets/ButtonDesigns/SubmitButton';
 import ClientAvatars from '@/assets/Hero/ClientAvatars';
 import HeroTitle from '@/assets/HeadingText/HeroTitle';
 import HeroDescription from '@/assets/HeadingText/HeroDescription';
-import Globe from '@/assets/Images/globe.jpg';
+
 // import DaanPitara from '@/assets/Images/DaanPitara.png';
 
 export default function Landing() {
@@ -25,7 +25,7 @@ export default function Landing() {
     text: 'Grow With DaanPitara',
     onClick: () => (window.location.href = '/fund-form'),
   };
-  const imageSrc = Globe;
+  const imageSrc = './CatchGlobe.png';
   const avatars = [
     { src: "./post/1.png" },
     { src: "./post/2.png" },
@@ -49,6 +49,7 @@ export default function Landing() {
                   to="#"
                   text={primaryCta.text}
                   bgColor={primaryCta.bgColor}
+                  className="lg:w-[265px]"
                 />
               </div>
             ) : null}
@@ -58,6 +59,7 @@ export default function Landing() {
                   submit={secondaryCta.onClick || (() => {})}
                   text={secondaryCta.text}
                   bgColor={secondaryCta.bgColor}
+                  className="lg:w-[265px]"
                 />
               </div>
             ) : null}

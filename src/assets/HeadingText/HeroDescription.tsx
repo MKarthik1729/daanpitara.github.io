@@ -5,9 +5,10 @@ interface Props {
   size?: number // pixels
   className?: string
   no_of_lines?: number
+  color?: string
 }
 
-const HeroDescription: React.FC<Props> = ({ text, size = 16, className, no_of_lines = 4 }) => {
+const HeroDescription: React.FC<Props> = ({ text, size = 16, className, no_of_lines = 4, color }) => {
   const [isExpanded, setIsExpanded] = useState(false)
   const [isOverflowing, setIsOverflowing] = useState(false)
   const textRef = useRef<HTMLParagraphElement>(null)
@@ -36,7 +37,7 @@ const HeroDescription: React.FC<Props> = ({ text, size = 16, className, no_of_li
   }
 
   const textStyle: React.CSSProperties = {
-    color: 'var(--Grey-3, #4C4B4B)',
+    color: color || 'var(--Grey-3, #4C4B4B)',
     fontFamily: 'Satoshi, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial',
     fontStyle: 'normal',
     fontWeight: 400,

@@ -1,62 +1,46 @@
-// import SectionHeading from "@/assets/Headings/SectionHeading";
 import type { JSX } from "react";
-import TopicHeading from "@/assets/HeadingText/TopicHeading";
-import CardHeading from "@/assets/HeadingText/CardHeading";
-import CardDesc from "@/assets/HeadingText/CardDesc";
-import TopicDesc from "@/assets/HeadingText/TopicDesc";
-// src/data/featuresData.tsx
-
-import {
-
-    HandshakeIcon,
-  IdentificationBadgeIcon,
-  FileTextIcon,
-  GlobeHemisphereEastIcon,
-  ChatsCircleIcon,
-  // FileMedicalIcon,
-  UsersThreeIcon,
-} from "@phosphor-icons/react";
-// import Card from "../Blogs/TextBlog";
+import HeroTitle from "@/assets/HeadingText/HeroTitle";
+import HeroDescription from "@/assets/HeadingText/HeroDescription";
 
 export interface FeatureItem {
-  icon: JSX.Element;
+  icon: JSX.Element | string;
   heading: string;
   description: string;
 }
 
 export const featuresData: FeatureItem[] = [
   {
-    icon: <HandshakeIcon size={40} weight="fill" className="text-blue-600" />,
+    icon: './icons/s1.svg',
     heading: "Seamless Onboarding",
     description:
       "Start your journey with confidence. We make it easy for NGOs to get online, be seen, and start creating impact faster.",
   },
   {
-    icon: <IdentificationBadgeIcon size={40} weight="fill" className="text-green-600" />,
+    icon: './icons/s2.svg',
     heading: "Verified NGO Profiles",
     description:
       "Show the world who you are. Verified listings build trust and help donors connect with your story and mission.",
   },
   {
-    icon: <UsersThreeIcon size={40} weight="fill" className="text-purple-600" />,
+    icon: './icons/s3.svg',
     heading: "CSR Matchmaking",
     description:
       "Find partners who care as much as you do. We connect you with purpose-driven brands through the best CSR partnership platform in India.",
   },
   {
-    icon: <FileTextIcon size={40} weight="fill" className="text-pink-600" />,
+    icon: './icons/s4.svg',
     heading: "Compliance & DPR Guidance",
     description:
       "We take the stress out of documentation so you can focus on what matters most — your cause and your community.",
   },
   {
-    icon: <GlobeHemisphereEastIcon size={40} weight="fill" className="text-yellow-600" />,
+    icon: './icons/s5.svg',
     heading: "Mission Growth Network",
     description:
       "Join a growing ecosystem of 1000+ NGOs working together to share learning, resources, and collective impact.",
   },
   {
-    icon: <ChatsCircleIcon size={40} weight="fill" className="text-teal-600" />,
+    icon: './icons/s6.svg',
     heading: "Personalized NGO Mentorship",
     description:
       "Get one-on-one guidance from experts who truly understand your challenges. Together, we build confidence, clarity, and a sustainable path forward.",
@@ -66,14 +50,6 @@ export const featuresData: FeatureItem[] = [
 
 
 
-
-// src/components/FeaturesSection.tsx
-
-// interface FeatureItem {
-//   icon: JSX.Element;
-//   heading: string;
-//   description: string;
-// }
 
 interface FeaturesSectionProps {
   features: FeatureItem[];
@@ -87,32 +63,60 @@ export default function FeaturesSection({
   subtitle = "Explore the tools and services that make your healthcare experience simple, personalized, and accessible anytime.",
 }: FeaturesSectionProps) {
   return (
-    <section className="px-8 py-8  bg-gray-50">
-      {/* Title and subtitle */}
-      <div className="max-w-7xl mx-auto text-center mb-12">
-        {/* <h2 className="text-3xl font-bold text-gray-800 mb-3">{title}</h2> */}
-        <TopicHeading heading={title} />
-        {/* <p className="text-gray-600 max-w-2xl mx-auto">{subtitle}</p> */}
-        <TopicDesc heading={subtitle} className="mt-5" />
+    <section className="lg:px-15 px-5 py-10  bg-bg-blue flex flex-col gap-10 rounded-2xl">
+      <div className="max-w-7xl mx-auto">
+        <HeroTitle heading={title}
+        color="#fff"
+        />
+        <HeroDescription text={subtitle} 
+        color="#D6D6D6"
+        size={20}
+        className="mt-3" />
       </div>
 
       {/* Grid layout */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-14 max-w-7xl mx-auto">
         {features.map((feature, index) => (
           <div
             key={index}
-            className="flex flex-col items-center text-center p-8 border border-gray-200 rounded-2xl bg-white shadow-sm hover:shadow-md hover:border-blue-300 transition-all duration-200"
+            className="flex flex-col text-start  p-8 border border-gray-200 rounded-2xl bg-white shadow-sm hover:shadow-md hover:border-blue-300 transition-all duration-200"
           >
-            <div className="mb-4 p-3 bg-blue-50 rounded-full">
-              {feature.icon}
-            </div>
-            {/* <h3 className="text-lg font-semibold text-gray-800 mb-2">
-              {feature.heading}
-            </h3> */}
-            <CardHeading heading={feature.heading} />
+            <div className="mb-4 p-3 rounded-full">
+              {typeof feature.icon=== "string"? (
+                <img
+                  src={feature.icon}
+                  alt={feature.heading}
+                  className="w-[86px] h-[80px]"
+                />
+              ) : 
+              (feature.icon)
+              } 
+                  
 
-            {/* <p className="text-gray-600 text-sm">{feature.description}</p> */}
-            <CardDesc heading={feature.description} className="mt-5" />
+            </div>
+            <HeroTitle 
+            heading={feature.heading}
+            color="#0A0A0A"
+            size={20}
+           />
+
+            <HeroDescription 
+            text={feature.description} 
+            color="var(--Grey-1, #4C4B4B)"
+            size={16}
+            no_of_lines={3}
+            />
+              <div
+                className="w-34 h-[40px] flex justify-center align-center bg-[#86D1F7] rounded-lg"
+              
+              >
+
+              <p
+              className="text-[#fff]"
+              >
+                Book a call
+              </p>
+              </div>
           </div>
         ))}
       </div>

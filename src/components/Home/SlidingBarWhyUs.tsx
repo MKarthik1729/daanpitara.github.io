@@ -6,8 +6,7 @@ import FeaturesSection from "./WhyUs";
 import { featuresData } from "./WhyUs";
 import { facilitiesData } from "./facilitiesData";
 import { servicesData } from "./servicesData";
-// import SectionHeading from "@/assets/HeadingText/SectionHeading";
-// import SubHeading from "@/assets/HeadingText/SubsectionHeading";
+import SubmitButton from "@/assets/ButtonDesigns/SubmitButton";
 const tabs = [
   { 
     id: "features", 
@@ -35,12 +34,8 @@ export default function FeaturesTabs() {
   const [activeTab, setActiveTab] = useState("features");
 
   return (
-    <div className="w-full py-10 text-gray-600 text-center" >
-      {/* <SectionHeading heading="Why People Trust Us" /> */}
-      {/* <SubHeading heading="Delivering success through strategy, innovation, and measurable impact across every digital platform." /> */}
-      {/* Tabs */}
+    <div className="w-full py-10 text-gray-600 text-center lg:px-15 px-5" >
       <div className="relative mb-10">
-        {/* Mobile: horizontal scroll | Desktop: centered row */}
         <div
           className="
             flex gap-4 sm:gap-6 
@@ -54,35 +49,15 @@ export default function FeaturesTabs() {
           "
         >
           {tabs.map((tab) => (
-            <button
-              key={tab.id}
-              onClick={() => setActiveTab(tab.id)}
-              className={`
-                relative flex-shrink-0 px-5 sm:px-6 py-2 
-                text-sm sm:text-base md:text-lg font-medium transition-colors
-                ${
-                  activeTab === tab.id
-                    ? "text-blue-600"
-                    : "text-gray-600 hover:text-gray-800"
-                }
-              `}
-            >
-              {tab.label}
-
-              {/* Animated underline for active tab */}
-              {activeTab === tab.id && (
-                <motion.div
-                  layoutId="active-tab"
-                  className="absolute left-0 right-0 bottom-0 h-[3px] bg-blue-600 rounded-full"
-                  transition={{ type: "spring", stiffness: 400, damping: 30 }}
-                />
-              )}
-            </button>
+              <SubmitButton 
+              submit={()=>setActiveTab(tab.id)}
+              text={tab.label}
+              className={activeTab === tab.id ? "text-white bg-blue-500" : "text-gray-600"}
+              />
           ))}
         </div>
       </div>
 
-      {/* Animated content */}
       <div className="relative">
         <AnimatePresence mode="wait">
           {tabs.map(

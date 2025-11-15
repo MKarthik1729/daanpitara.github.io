@@ -6,14 +6,14 @@ interface AnimatedNavLinkProps {
   text: string;
   /** background color for the button (css color). default: #fff */
   bgColor?: string;
+  className?: string;
 }
 
-export default function AnimatedNavLink({ submit, text, bgColor }: AnimatedNavLinkProps) {
+export default function AnimatedNavLink({ submit, text, bgColor, className=""}: AnimatedNavLinkProps) {
   const [hovered, setHovered] = useState(false);
 
   const buttonStyle: React.CSSProperties = {
     display: 'flex',
-    width: 265,
     height: 48,
     padding: 10,
     justifyContent: 'center',
@@ -28,7 +28,7 @@ export default function AnimatedNavLink({ submit, text, bgColor }: AnimatedNavLi
   return (
     <div
       onClick={submit}
-      className="relative inline-flex overflow-hidden font-bold group text-lg w-full sm:w-auto"
+      className={`relative inline-flex overflow-hidden font-bold group text-lg w-full sm:w-auto ${className}`}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       style={buttonStyle}

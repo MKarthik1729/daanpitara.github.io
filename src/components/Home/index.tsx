@@ -3,11 +3,13 @@ import Landing from "./Landing";
 import SlidingBarWhyUs from "./SlidingBarWhyUs";
 import OurStory from "../About/OurStory";
 import LatestInsights from "../Blogs/LatestInsights";
+import AddBanner from "@/assets/Hero/AddBanner";
 
 export default function Home() {
   return (
     <>
           <Landing />
+          <AddBanner />
           <SlidingBarWhyUs />
           <OurStory />
           <LatestInsights />
