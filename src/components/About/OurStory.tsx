@@ -30,13 +30,13 @@ export default function Mission() {
   ]
 
   return (
-    <div className="flex flex-col lg:flex-row items-center lg:items-start justify-center gap-12 lg:gap-16 p-4 md:p-8">
-      <div className="flex justify-center w-full lg:w-auto">
+    <div className="flex flex-col lg:flex-row lg:items-start gap-6 lg:gap-30 p-4 md:p-8">
+      <div className="flex justify-center w-full lg:w-auto flex-1">
         <DoubleImage rightImage={"/story1.jpg"} leftImage={"/support.jpg"} />
       </div>
 
-      <div className="flex flex-col max-w-xl gap-10 items-center lg:items-start">
-        <div className="text-center lg:text-left">
+      <div className="flex-1 flex flex-col max-w-xl gap-10 items-center lg:items-start">
+        <div className="lg:text-left">
 
           <HeroTitle heading="Our Story" />
           <HeroDescription
@@ -49,17 +49,17 @@ export default function Mission() {
           />
         </div>
         <div
-          className="grid grid-cols-2 sm:grid-cols-4 gap-4"
+          className="flex flex-row items-center gap-10 self-stretch"
         >
 
           {specialities.map((item, index) => (
-            <div key={index} className="flex flex-col items-center text-center space-y-2 px-4 py-5
-            rounded-[14px]
-            border border-[#E5E7EB]/[0.8]
-            bg-white
-            shadow-sm
-            self-stretch
-          ">
+            <div
+              key={index}
+              className="flex flex-col gap-2
+              w-[149px] h-[142px] 
+              pt-[18px] pr-[8px] pb-[17px] pl-[8px]
+              rounded-[14px] border border-[#E5E7EB]/[0.8] bg-white shadow-sm"
+            >
               <div>{item.icon}</div>
 
               <span className="font-bold text-2xl">{item.count}</span>

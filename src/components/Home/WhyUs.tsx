@@ -107,7 +107,7 @@ export default function FeaturesSection({
             no_of_lines={3}
             />
               <div
-                className="w-34 h-[40px] flex justify-center align-center bg-[#86D1F7] rounded-lg"
+                className="w-34 h-[40px] flex justify-center items-center bg-[#86D1F7] rounded-lg"
               
               >
 
