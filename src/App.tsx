@@ -1,17 +1,14 @@
 import { BrowserRouter as Router, Routes, Route, Outlet } from "react-router-dom";
-// import Home from "./pages/Home";
-// import About from "./pages/About";
-// import Services from "./pages/Services";
-// import Contact from "./pages/Contact";
-// import NotFound from "./pages/NotFound";
-
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Home from "./components/Home";
 import Fundraiser from "./components/Fundraiser";
 import Faqs from "./components/Faqs";
 import Blogs from "./components/Blogs";
-import SignUp from "./components/SignUp";
+// import SignUp from "./components/SignUp";
+import SignIn from "./components/SignIn";
+import Contact from "./components/Contact";
+import Dashboard from "./components/Dashboard";
 // import Testimonials from "./components/Footer/Testimonials";
 import About from "./components/About";
 import NotFoundPage from "./components/NotFound";
@@ -36,8 +33,14 @@ function App() {
           <Route path="/blogs/life-of-volunteer" element={<BlogPage items={volunteerContentData} />} />
           <Route path="/blogs/csr-funding" element={<BlogPage items={csrFundingContentData} />} />
 
-          <Route path="/signup" element={<SignUp />} />
+          <Route path="/signup" element={<SignIn initialView="signup" />} />
+          <Route path="/signin" element={<SignIn initialView="signin" />} />
+
+          <Route path="/dashboard" element={<Dashboard />} />
+
+
           <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
           <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>

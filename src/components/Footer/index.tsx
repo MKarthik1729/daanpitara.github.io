@@ -13,7 +13,7 @@ import DaanPitara from "@/assets/Images/DaanPitara.png";
 const Footer = () => {
   return (
     <footer className="bg-[#E7F0F3] text-[#1A1A1A] py-14">
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto lg:px-15 px-3">
 
         {/* MAIN WRAPPER */}
         <div className="flex flex-col gap-12 lg:flex-row lg:gap-0 lg:justify-between">

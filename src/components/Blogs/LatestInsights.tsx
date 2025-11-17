@@ -59,7 +59,7 @@ const cardVariants: Variants = {
 
 const LatestInsights: React.FC = () => {
   return (
-    <div className="px-8 py-14 min-h-screen bg-bg-blue bg-opacity-10 mt-14 rounded-t-2xl">
+    <div className="lg:px-8 py-14 min-h-screen bg-bg-blue bg-opacity-10 mt-14 rounded-t-2xl">
       <HeroTitle
       heading="Latest Insights"
         className="text-center mb-3"

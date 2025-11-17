@@ -34,16 +34,17 @@ export default function Navbar() {
 
       {/* Desktop Links */}
       <div className="hidden md:flex space-x-10 text-txt-black font-bold text-lg">
-        <Link to="/" className="hover:text-brand-blue transition-colors duration-200">Home</Link>
+        {/* <Link to="/" className="hover:text-brand-blue transition-colors duration-200">Home</Link> */}
         <Link to="/fund-form" className="hover:text-brand-blue transition-colors duration-200">Fundraiser Form</Link>
         <Link to="/faqs" className="hover:text-brand-blue transition-colors duration-200">FAQ's</Link>
+        <Link to="/contact" className="hover:text-brand-blue transition-colors duration-200">Contact Us</Link>
         <Link to="/blogs" className="hover:text-brand-blue transition-colors duration-200">Blogs</Link>
         <Link to="/about" className="hover:text-brand-blue transition-colors duration-200">About us</Link>
       </div>
 
       {/* Desktop Sign Up */}
       <div className="hidden md:flex">
-        <HighlightButton to="/signup" text="Sign Up" />
+        <HighlightButton to="/signin" text="Sign In" />
       </div>
 
       {/* Mobile Hamburger */}
@@ -64,13 +65,14 @@ export default function Navbar() {
             transition={{ type: "spring", stiffness: 300, damping: 25 }}
             className="absolute top-full left-0 w-full bg-white flex flex-col p-6 md:hidden gap-5 text-lg font-bold"
           >
-            <Link to="/" className="py-2 hover:text-brand-blue transition-colors duration-200" onClick={() => setIsOpen(false)}>Home</Link>
+            {/* <Link to="/" className="py-2 hover:text-brand-blue transition-colors duration-200" onClick={() => setIsOpen(false)}>Home</Link> */}
             <Link to="/fund-form" className="py-2 hover:text-brand-blue transition-colors duration-200" onClick={() => setIsOpen(false)}>Fundraiser Form</Link>
             <Link to="/faqs" className="py-2 hover:text-brand-blue transition-colors duration-200" onClick={() => setIsOpen(false)}>FAQ's</Link>
+            <Link to="/contact" className="py-2 hover:text-brand-blue transition-colors duration-200" onClick={() => setIsOpen(false)}>Contact Us</Link>
             <Link to="/blogs" className="py-2 hover:text-brand-blue transition-colors duration-200" onClick={() => setIsOpen(false)}>Blogs</Link>
             <Link to="/about" className="py-2 hover:text-brand-blue transition-colors duration-200" onClick={() => setIsOpen(false)}>About us</Link>
             <div onClick={() => setIsOpen(false)}>
-              <HighlightButton to="/signup" text="Sign Up" />
+              <HighlightButton to="/signin" text="Sign In" />
             </div>
           </motion.div>
         )}
