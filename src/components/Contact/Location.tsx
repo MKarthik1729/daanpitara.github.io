@@ -1,24 +1,29 @@
 import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api";
-import React from "react";
-
 const containerStyle = {
   width: "100%",
-  height: "400px"
+  height: "100%", // Changed to 100% to fill the parent grid column
+  borderRadius: "0.5rem", // Added rounded corners to match the Form
 };
 
-// Example location (e.g. New York)
+// Updated coordinates to match the screenshot (Sector 71, Mohali/Chandigarh)
 const center = {
-  lat: 40.7128,
-  lng: -74.0060
+  lat: 30.7046, 
+  lng: 76.7179
 };
 
-const Map: React.FC = () => {
+const Location: React.FC = () => {
   return (
-    <LoadScript googleMapsApiKey={"AIzaSyA9vGSKB4IGunU9tSUNAHubOfHAPFjO_kE"}>
+    // Ideally, move LoadScript to your App.tsx or root to avoid reloading it on navigation
+    // If this is the only map, this placement is fine.
+    <LoadScript googleMapsApiKey="AIzaSyA9vGSKB4IGunU9tSUNAHubOfHAPFjO_kE">
       <GoogleMap
         mapContainerStyle={containerStyle}
         center={center}
-        zoom={12}
+        zoom={15} // Increased zoom to match the street-level view in the screenshot
+        options={{
+            disableDefaultUI: true, // Cleaner look (optional, removes buttons)
+            zoomControl: true,
+        }}
       >
         {/* Marker at the location */}
         <Marker position={center} />
@@ -27,4 +32,4 @@ const Map: React.FC = () => {
   );
 };
 
-export default Map;
+export default Location;

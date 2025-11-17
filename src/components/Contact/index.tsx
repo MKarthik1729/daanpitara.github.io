@@ -12,15 +12,17 @@ const Contact: React.FC = () => {
         <GetInTouch />
 
         {/* === BOTTOM SECTION: Form + Map === */}
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
+        {/* CHANGED: grid-cols-2 for equal 50/50 width split */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-stretch">
           
           {/* Left Column (Form) */}
-          <div className="lg:col-span-3">
+          <div className="h-full">
             <ContactForm />
           </div>
 
           {/* Right Column (Map) */}
-          <div className="lg:col-span-2">
+          {/* min-h added to ensure map has height on mobile/tablet before stacking */}
+          <div className="h-full min-h-[500px] lg:min-h-0">
             <Location />
           </div>
         </div>
