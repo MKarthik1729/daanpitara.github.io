@@ -27,7 +27,8 @@ const API_BASE_URL = `${url()}/users`;
  */
 export const registerUser = async (credentials: UserCredentials): Promise<RegisterSuccessResponse> => {
   // Assuming the register endpoint also uses the centralized apiClient
-  return apiClient.post<RegisterSuccessResponse>(`${API_BASE_URL}/register`, credentials);
+  const response = await apiClient.post<RegisterSuccessResponse>(`${API_BASE_URL}/register`, credentials);
+  return response.data;
 };
 
 /**
@@ -48,7 +49,7 @@ export const loginUser = async (credentials: UserCredentials) => {
  */
 export const logoutUser = (): void => {
   // Deletes the 'sign' cookie to log the user out
-  document.cookie = "sign=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+  document.cookie = "token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
 };
 
 /**
