@@ -33,8 +33,8 @@ function App() {
           <Route path="/blogs/life-of-volunteer" element={<BlogPage items={volunteerContentData} />} />
           <Route path="/blogs/csr-funding" element={<BlogPage items={csrFundingContentData} />} />
 
-          <Route path="/signup" element={<SignIn initialView="signup" />} />
-          <Route path="/signin" element={<SignIn initialView="signin" />} />
+          <Route path="/signup" element={<SignIn key='signup' initialView="signup" />} />
+          <Route path="/signin" element={<SignIn key='signin' initialView="signin" />} />
 
           <Route path="/dashboard" element={<Dashboard />} />
 
