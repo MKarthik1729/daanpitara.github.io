@@ -1,6 +1,7 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom"; // <-- ADD THIS
+import { useNavigate } from "react-router-dom";
 import { Input } from "@/assets/theme/InputField.tsx";
+import { loginUser } from "../../assets/Services/authService";
 import { 
   ArrowRight, 
   Eye, 
@@ -17,13 +18,32 @@ interface SignInFormProps {
 
 export default function SignInForm({ onForgotPasswordClick }: SignInFormProps) {
   const [showPassword, setShowPassword] = useState(false);
+  const [errors, setErrors] = useState<Record<string, string | null>>({});
   const navigate = useNavigate();
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setErrors({}); // Clear previous errors
 
-    // TODO: Validation or API call
-    navigate("/dashboard"); // <-- REDIRECT
+    const formData = new FormData(e.currentTarget);
+    const data = Object.fromEntries(formData.entries());
+    const email = data.email as string;
+    const password = data.password as string;
+
+    if (!email || !password) {
+      setErrors({
+        email: !email ? "Email is required." : null,
+        password: !password ? "Password is required." : null,
+      });
+      return;
+    }
+
+    try {
+      await loginUser({ email, password });
+      navigate("/dashboard");
+    } catch (error: any) {
+      setErrors({ api: error.message || "User or Password is incorrect or not found." });
+    }
   };
 
   return (
@@ -31,21 +51,26 @@ export default function SignInForm({ onForgotPasswordClick }: SignInFormProps) {
 
       {/* Form */}
       <form className="space-y-5" onSubmit={handleSubmit}>
-        <Input
+        {errors.api && <p className="mt-2 text-sm text-red-600">{errors.api}</p>}
+        <div>
+          <Input
           id="email"
           label="Email Address"
           type="email"
           placeholder="you@example.com"
+          name="email"
           autoComplete="email"
           required
           preIcon={<EnvelopeSimple size={20} className="text-gray-400" />}
         />
-
+          {errors.email && <p className="mt-2 text-sm text-red-600">{errors.email}</p>}
+        </div>
         <div>
           <Input
             id="password"
             label="Password"
             type={showPassword ? "text" : "password"}
+            name="password"
             placeholder="••••••••"
             autoComplete="current-password"
             required
@@ -60,6 +85,7 @@ export default function SignInForm({ onForgotPasswordClick }: SignInFormProps) {
               </button>
             }
           />
+          {errors.password && <p className="mt-2 text-sm text-red-600">{errors.password}</p>}
 
           <div className="text-right mt-2">
             <button

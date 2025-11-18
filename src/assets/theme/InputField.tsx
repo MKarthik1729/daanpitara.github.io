@@ -4,12 +4,13 @@ import * as React from "react";
 export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   label: string;
   id: string;
+  error?: string | null;
   preIcon?: React.ReactNode;
   postIcon?: React.ReactNode;
 }
 
 const Input = React.forwardRef<HTMLInputElement, InputProps>(
-  ({ className, type, label, id, preIcon, postIcon, ...props }, ref) => {
+  ({ className, type, label, id, error, preIcon, postIcon, ...props }, ref) => {
     return (
       <div className="w-full">
         {/* Label for the input */}
@@ -36,11 +37,15 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
             id={id}
             ref={ref}
             className={`
-              block w-full rounded-md border-gray-300 shadow-sm
-              focus:border-indigo-500 focus:ring-indigo-500
+              block w-full rounded-md shadow-sm
               sm:text-sm py-3
               ${preIcon ? "pl-10" : "pl-4"}
               ${postIcon ? "pr-10" : "pr-4"}
+              ${
+                error
+                  ? "border-red-300 text-red-900 placeholder-red-300 focus:border-red-500 focus:ring-red-500"
+                  : "border-gray-300 focus:border-indigo-500 focus:ring-indigo-500"
+              }
               ${className}
             `}
             {...props}

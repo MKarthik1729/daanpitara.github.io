@@ -1,0 +1,62 @@
+import { url } from '../config';
+import apiClient from './apiClient'; // Import the centralized axios instance
+
+// Define interfaces for the data structures to ensure type safety.
+interface UserCredentials {
+  email: string;
+  password: string;
+}
+
+interface RegisterSuccessResponse {
+  message: string;
+  userId: number;
+}
+
+interface LoginSuccessResponse {
+  message: string;
+}
+
+const API_BASE_URL = `${url()}/users`;
+
+/**
+ * Registers a new user by sending a POST request to the /register endpoint.
+ *
+ * @param credentials - An object containing the user's email and password.
+ * @returns A promise that resolves with the success response from the API.
+ * @throws Throws an error with a message from the API if the request fails.
+ */
+export const registerUser = async (credentials: UserCredentials): Promise<RegisterSuccessResponse> => {
+  // Assuming the register endpoint also uses the centralized apiClient
+  return apiClient.post<RegisterSuccessResponse>(`${API_BASE_URL}/register`, credentials);
+};
+
+/**
+ * Logs in a user by sending a POST request to the /login endpoint.
+ * On success, the server sets a cookie for session management.
+ *
+ * @param credentials - An object containing the user's email and password.
+ * @returns A promise that resolves with the success message from the API.
+ * @throws Throws an error with a message from the API if the request fails.
+ */
+export const loginUser = async (credentials: UserCredentials) => {
+  const response = await apiClient.post<LoginSuccessResponse>(`${API_BASE_URL}/login`, credentials);
+  console.log('Login response:', response);
+};
+
+/**
+ * Logs out the user by deleting the session cookie.
+ */
+export const logoutUser = (): void => {
+  // Deletes the 'sign' cookie to log the user out
+  document.cookie = "sign=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+};
+
+/**
+ * Checks if the user is logged in by verifying the presence of the 'sign' cookie.
+ *
+ * @returns True if the user is logged in, false otherwise.
+ */
+export const isLoggedIn = (): boolean => {
+  // Checks for the existence of the 'sign' cookie.
+  return document.cookie.split(';').some((item) => item.trim().startsWith('sign='));
+};

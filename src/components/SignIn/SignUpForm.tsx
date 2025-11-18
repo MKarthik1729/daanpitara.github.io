@@ -1,5 +1,8 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Input } from "@/assets/theme/InputField.tsx"; // Adjust path as needed
+import { validatePassword, confirmPassword } from "../Services/Validation.ts";
+import { registerUser } from "../../assets/Services/authService";
 import { 
   ArrowRight, 
   Eye, 
@@ -10,14 +13,44 @@ import {
   Lock
 } from "@phosphor-icons/react";
 
-// Define props for the component
-// interface SignUpFormProps {
-//   onSignInClick: () => void; // Function to switch to Sign In view
-// }
 
 export default function SignUpForm() {
   const [showPassword, setShowPassword] = useState(false);
   const [showRepeatPassword, setShowRepeatPassword] = useState(false);
+  const [errors, setErrors] = useState<Record<string, string | null>>({});
+  const navigate = useNavigate();
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setErrors({}); // Clear previous errors
+    const formData = new FormData(e.currentTarget);
+    const data = Object.fromEntries(formData.entries());
+    const email = data.email as string;
+    const password = data.password as string;
+    const repeatPassword = data["repeat-password"] as string;
+
+    const passwordError = validatePassword(password);
+    const repeatPasswordError = confirmPassword(password, repeatPassword);
+
+    if (passwordError || repeatPasswordError || !email) {
+      setErrors({
+        email: !email ? "Email is required." : null,
+        password: passwordError,
+        "repeat-password": repeatPasswordError,
+      });
+      return; // Stop submission if there are errors
+    }
+
+    try {
+      await registerUser({ email, password });
+      alert("Successfully registered");
+      navigate("/signin");
+    } catch (error: any) {
+      // Display API errors (e.g., email already in use)
+      setErrors({ api: error.message || "An unknown error occurred." });
+    }
+  };
+
 
   return (
     <div className="w-full max-w-md space-y-6">
@@ -30,64 +63,78 @@ export default function SignUpForm() {
       </div>
 
       {/* Form */}
-      <form className="space-y-5">
-        <Input
-          id="email"
-          label="Email Address"
-          type="email"
-          placeholder="you@example.com"
-          autoComplete="email"
-          required
-          preIcon={
-            <EnvelopeSimple size={20} className="text-gray-400" />
-          }
-        />
+      <form className="space-y-5" onSubmit={handleSubmit}>
+        {errors.api && <p className="mt-2 text-sm text-red-600">{errors.api}</p>}
+        <div>
+          <Input
+            id="email"
+            label="Email Address"
+            type="email"
+            placeholder="you@example.com"
+            name="email"
+            autoComplete="email"
+            required
+            preIcon={
+              <EnvelopeSimple size={20} className="text-gray-400" />
+            }
+          />
+          {errors.email && <p className="mt-2 text-sm text-red-600">{errors.email}</p>}
+        </div>
 
-        <Input
-          id="password"
-          label="Password"
-          type={showPassword ? "text" : "password"}
-          placeholder="••••••••"
-          autoComplete="new-password"
-          required
-          preIcon={
-            <Lock size={20} className="text-gray-400" />
-          }
-          postIcon={
-            <button
-              type="button"
-              onClick={() => setShowPassword(!showPassword)}
-              className="text-gray-400 hover:text-gray-500"
-              aria-label={showPassword ? "Hide password" : "Show password"}
-            >
-              {showPassword ? <EyeSlash size={20} /> : <Eye size={20} />}
-            </button>
-          }
-        />
+        <div>
+          <Input
+            id="password"
+            label="Password"
+            type={showPassword ? "text" : "password"}
+            name="password"
+            placeholder="••••••••"
+            autoComplete="new-password"
+            error={errors.password}
+            required
+            preIcon={
+              <Lock size={20} className="text-gray-400" />
+            }
+            postIcon={
+              <button
+                type="button"
+                onClick={() => setShowPassword(!showPassword)}
+                className="text-gray-400 hover:text-gray-500"
+                aria-label={showPassword ? "Hide password" : "Show password"}
+              >
+                {showPassword ? <EyeSlash size={20} /> : <Eye size={20} />}
+              </button>
+            }
+          />
+          {errors.password && <p className="mt-2 text-sm text-red-600">{errors.password}</p>}
+        </div>
 
-        <Input
-          id="repeat-password"
-          label="Repeat Password"
-          type={showRepeatPassword ? "text" : "password"}
-          placeholder="••••••••"
-          autoComplete="new-password"
-          required
-          preIcon={
-            <Lock size={20} className="text-gray-400" />
-          }
-          postIcon={
-            <button
-              type="button"
-              onClick={() => setShowRepeatPassword(!showRepeatPassword)}
-              className="text-gray-400 hover:text-gray-500"
-              aria-label={showRepeatPassword ? "Hide password" : "Show password"}
-            >
-              {showRepeatPassword ? <EyeSlash size={20} /> : <Eye size={20} />}
-            </button>
-          }
-        />
+        <div>
+          <Input
+            id="repeat-password"
+            label="Repeat Password"
+            type={showRepeatPassword ? "text" : "password"}
+            name="repeat-password"
+            placeholder="••••••••"
+            autoComplete="new-password"
+            error={errors["repeat-password"]}
+            required
+            preIcon={
+              <Lock size={20} className="text-gray-400" />
+            }
+            postIcon={
+              <button
+                type="button"
+                onClick={() => setShowRepeatPassword(!showRepeatPassword)}
+                className="text-gray-400 hover:text-gray-500"
+                aria-label={showRepeatPassword ? "Hide password" : "Show password"}
+              >
+                {showRepeatPassword ? <EyeSlash size={20} /> : <Eye size={20} />}
+              </button>
+            }
+          />
+          {errors["repeat-password"] && <p className="mt-2 text-sm text-red-600">{errors["repeat-password"]}</p>}
+        </div>
 
-        {/* Sign Up Button */}
         <button
           type="submit"
           className="w-full flex justify-center items-center gap-2 rounded-md 

@@ -6,6 +6,7 @@ import {
   HandHeart,
   ArrowRight,
 } from '@phosphor-icons/react';
+import { useFormStore } from './formStore';
 
 // --- Props Definitions ---
 
@@ -19,7 +20,7 @@ interface ProfileCardProps {
   icon: React.ElementType;
   title: string;
   description: string;
-  onNext: () => void; // Pass the onNext function down to the card
+  onClick: () => void;
 }
 
 // --- Data ---
@@ -57,7 +58,7 @@ const ProfileTypeCard: React.FC<ProfileCardProps> = ({
   icon: Icon,
   title,
   description,
-  onNext,
+  onClick,
 }) => (
   <div className="bg-white rounded-xl shadow-md p-6 border border-gray-200 flex flex-col">
     {/* Icon */}
@@ -77,7 +78,7 @@ const ProfileTypeCard: React.FC<ProfileCardProps> = ({
 
     {/* Continue Button */}
     <button
-      onClick={onNext} // Calls the controller's onNext function
+      onClick={onClick}
       className="text-blue-600 font-medium inline-flex items-center group text-sm text-left"
     >
       Continue
@@ -92,6 +93,7 @@ const ProfileTypeCard: React.FC<ProfileCardProps> = ({
 
 // --- Main Step 1 Component ---
 const ChooseProfileStep: React.FC<Step1Props> = ({ onNext }) => {
+  const setFormField = useFormStore((state) => state.setFormField);
   return (
     <div className="min-h-screen flex items-center justify-center p-8">
       <div className="max-w-4xl w-full">
@@ -114,15 +116,19 @@ const ChooseProfileStep: React.FC<Step1Props> = ({ onNext }) => {
 
         {/* Grid of Profile Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {profileTypes.map((profile) => (
-            <ProfileTypeCard
-              key={profile.title}
-              icon={profile.icon}
-              title={profile.title}
-              description={profile.description}
-              onNext={onNext} // Pass the onNext function to each card
-            />
-          ))}
+          {profileTypes.map((profile) => {
+            const handleClick = () => {
+              setFormField('profileType', profile.title);
+              onNext();
+            };
+            return (
+              <ProfileTypeCard
+                key={profile.title}
+                {...profile}
+                onClick={handleClick}
+              />
+            );
+          })}
         </div>
       </div>
     </div>

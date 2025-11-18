@@ -5,7 +5,7 @@ import Location from "./Location";
 
 const Contact: React.FC = () => {
   return (
-    <div className="min-h-screen bg-white p-4 md:p-8 lg:p-12">
+    <div className="min-h-screen bg-white px-4 pb-14 md:px-8 lg:px-12">
       <div className="max-w-7xl mx-auto flex flex-col gap-8">
         
         {/* === TOP SECTION: Get in Touch + Image === */}

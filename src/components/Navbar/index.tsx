@@ -1,13 +1,26 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { ListIcon, XIcon } from "@phosphor-icons/react"; 
 import { motion, AnimatePresence } from "framer-motion";
 
 import HighlightButton from "@/assets/ButtonDesigns/HighlightButton";
 import Logo from "@/assets/Images/DaanPitara.png";
+import { isLoggedIn, logoutUser } from "@/assets/Services/authService";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [loggedIn, setLoggedIn] = useState(false);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    setLoggedIn(isLoggedIn());
+  }, []);
+
+  const handleLogout = () => {
+    logoutUser();
+    setLoggedIn(false);
+    navigate("/signin");
+  };
 
   const menuVariants = {
     hidden: { opacity: 0, y: -50 },
@@ -44,7 +57,11 @@ export default function Navbar() {
 
       {/* Desktop Sign Up */}
       <div className="hidden md:flex">
-        <HighlightButton to="/signin" text="Sign In" />
+        {loggedIn ? (
+          <button onClick={handleLogout} className="bg-brand-blue text-white font-bold py-2 px-4 rounded hover:bg-blue-700 transition-colors duration-200">Logout</button>
+        ) : (
+          <HighlightButton to="/signin" text="Sign In" />
+        )}
       </div>
 
       {/* Mobile Hamburger */}
@@ -72,7 +89,11 @@ export default function Navbar() {
             <Link to="/blogs" className="py-2 hover:text-brand-blue transition-colors duration-200" onClick={() => setIsOpen(false)}>Blogs</Link>
             <Link to="/about" className="py-2 hover:text-brand-blue transition-colors duration-200" onClick={() => setIsOpen(false)}>About us</Link>
             <div onClick={() => setIsOpen(false)}>
-              <HighlightButton to="/signin" text="Sign In" />
+              {loggedIn ? (
+                <button onClick={handleLogout} className="bg-brand-blue text-white font-bold py-2 px-4 rounded w-full text-left hover:bg-blue-700 transition-colors duration-200">Logout</button>
+              ) : (
+                <HighlightButton to="/signin" text="Sign In" />
+              )}
             </div>
           </motion.div>
         )}
