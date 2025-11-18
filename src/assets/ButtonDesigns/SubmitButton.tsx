@@ -1,8 +1,9 @@
-import { motion, AnimatePresence } from "framer-motion";
+
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 interface AnimatedNavLinkProps {
-  submit: () => void;
+  submit: string | (() => void);
   text: string;
   /** background color for the button (css color). default: #fff */
   bgColor?: string;
@@ -10,7 +11,8 @@ interface AnimatedNavLinkProps {
 }
 
 export default function AnimatedNavLink({ submit, text, bgColor, className=""}: AnimatedNavLinkProps) {
-  const [hovered, setHovered] = useState(false);
+  const navigate = useNavigate();
+  const [isHovered, setIsHovered] = useState(false);
 
   const buttonStyle: React.CSSProperties = {
     display: 'flex',
@@ -20,44 +22,23 @@ export default function AnimatedNavLink({ submit, text, bgColor, className=""}: 
     alignItems: 'center',
     gap: 10,
     borderRadius: 8,
-    background: bgColor || 'bg-white',
-    border: bgColor ? 'none' : '1px solid var(--Grey-1, #4C4B4B)',
+    background: isHovered ? '#0F71A8' : (bgColor || 'var(--color-white)'),
+    color: isHovered ? '#fff' : undefined,
+    border: isHovered ? 'none' : bgColor ? 'none' : '1px solid var(--Grey-1, #4C4B4B)',
     cursor: 'pointer'
   }
 
   return (
     <div
-      onClick={submit}
-      className={`relative inline-flex overflow-hidden font-bold group text-lg w-full sm:w-auto ${className}`}
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
+      onClick={typeof submit=="string" ? () => { navigate(submit as string) } : submit}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      className={`relative inline-flex font-bold text-lg w-full sm:w-auto ${className}`}
       style={buttonStyle}
     >
-      <AnimatePresence mode="wait">
-        {!hovered ? (
-          <motion.span
-            key="default"
-            initial={{ y: 0, opacity: 1 }}
-            animate={{ y: 0, opacity: 1 }}
-            exit={{ y: -20, opacity: 0 }}
-            transition={{ duration: 0.25, ease: 'easeInOut' }}
-            className="block text-center w-full"
-          >
-            {text}
-          </motion.span>
-        ) : (
-          <motion.span
-            key="hover"
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            exit={{ y: 20, opacity: 0 }}
-            transition={{ duration: 0.25, ease: 'easeInOut' }}
-            className="block text-center w-full"
-          >
-            {text}
-          </motion.span>
-        )}
-      </AnimatePresence>
+      <span className="block text-center w-full">
+        {text}
+      </span>
     </div>
   );
 }

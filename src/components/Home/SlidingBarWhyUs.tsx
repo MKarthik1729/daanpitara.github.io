@@ -53,6 +53,7 @@ export default function FeaturesTabs() {
               submit={()=>setActiveTab(tab.id)}
               text={tab.label}
               className={activeTab === tab.id ? "text-white bg-blue-500" : "text-gray-600"}
+              bgColor={activeTab === tab.id ? "var(--Primary, #0F71A8)" : undefined}
               />
           ))}
         </div>

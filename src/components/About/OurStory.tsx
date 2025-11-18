@@ -2,7 +2,7 @@ import HeroDescription from "@/assets/HeadingText/HeroDescription";
 import HeroTitle from "@/assets/HeadingText/HeroTitle";
 import DoubleImage from "@/assets/ImageDisplay/DoubleImage";
 import { HandshakeIcon } from "@phosphor-icons/react";
-import HighlightButton from "@/assets/ButtonDesigns/HighlightButton";
+import SubmitButton from "@/assets/ButtonDesigns/SubmitButton";
 
 export default function Mission() {
 
@@ -72,7 +72,8 @@ export default function Mission() {
             </div>
           ))}
         </div>
-          <HighlightButton 
+          <SubmitButton 
+          submit="/signup"
           text="Join our Mission"
           className="w-full sm:w-auto lg:w-[246px]" 
           

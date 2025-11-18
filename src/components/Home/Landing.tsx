@@ -20,6 +20,7 @@ export default function Landing() {
     text: 'Register Your NGO Now',
     onClick: () => (window.location.href = '/register'),
     bgColor: 'var(--Primary, #36B2F1)',
+    color: '#fff',
   };
   const secondaryCta: { text: string; onClick: () => void; bgColor?: string } = {
     text: 'Grow With DaanPitara',
@@ -46,10 +47,11 @@ export default function Landing() {
             {primaryCta ? (
             <div className="w-full sm:w-auto">
                 <HighlightButton
-                  to="#"
+                  to="/signup"
                   text={primaryCta.text}
                   bgColor={primaryCta.bgColor}
-                  className="lg:w-[265px]"
+                  className="lg:w-[265px] text-[#fff]"
+                  
                 />
               </div>
             ) : null}
