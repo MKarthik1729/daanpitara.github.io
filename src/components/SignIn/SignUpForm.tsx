@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { Input } from "@/assets/theme/InputField.tsx"; // Adjust path as needed
 import { validatePassword, confirmPassword } from "../Services/Validation.ts";
 import { registerUser } from "../../assets/Services/authService";
+import { getAuthErrorMessage } from "../../assets/Services/errorHandler";
 import { 
   ArrowRight, 
   Eye, 
@@ -17,6 +18,7 @@ import {
 export default function SignUpForm() {
   const [showPassword, setShowPassword] = useState(false);
   const [showRepeatPassword, setShowRepeatPassword] = useState(false);
+  const [showSuccessPopup, setShowSuccessPopup] = useState(false);
   const [errors, setErrors] = useState<Record<string, string | null>>({});
   const navigate = useNavigate();
 
@@ -43,22 +45,59 @@ export default function SignUpForm() {
 
     try {
       await registerUser({ email, password });
-      alert("Successfully registered");
-      navigate("/signin");
+      setShowSuccessPopup(true);
     } catch (error: any) {
-      // Display API errors (e.g., email already in use)
-      setErrors({ api: error.message || "An unknown error occurred." });
+      console.error("Registration error:", error);
+      const message = error.message || 'An unknown error occurred.';
+      const statusCodeMatch = message.match(/status code (\d{3})/);
+      const statusCode = statusCodeMatch ? parseInt(statusCodeMatch[1], 10) : null;
+
+      if (statusCode === 409) {
+        const errorMessage = getAuthErrorMessage(409);
+        setErrors((prevErrors) => ({ ...prevErrors, email: errorMessage }));
+      } else {
+        const errorMessage = statusCode ? getAuthErrorMessage(statusCode) : message;
+        setErrors((prevErrors) => ({ ...prevErrors, api: errorMessage }));
+      }
     }
+  };
+
+  const handlePopupOk = () => {
+    setShowSuccessPopup(false);
+    navigate("/signin");
   };
 
 
   return (
     <div className="w-full max-w-md space-y-6">
+      {showSuccessPopup && (
+        <div className="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full flex items-center justify-center">
+          <div className="p-8 border w-96 shadow-lg rounded-md bg-white">
+            <div className="text-center">
+              <h3 className="text-2xl font-bold text-gray-900">Success!</h3>
+              <div className="mt-2 px-7 py-3">
+                <p className="text-lg text-gray-500">You have been successfully registered.</p>
+              </div>
+              <div className="flex justify-center mt-4">
+                <button
+                  onClick={handlePopupOk}
+                  className="px-4 py-2 bg-blue-500 text-white text-base font-medium rounded-md w-full shadow-sm hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-300"
+                >
+                  OK
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
       {/* Titles */}
-      <div className="space-y-1">
-        <h1 className="text-3xl font-bold text-gray-900">
-          Welcome To DaanPitara
+            <div className="mb-8">
+        <h1 className="text-3xl font-bold text-black">
+          Welcome To <span className="text-cyan-500">DaanPitara</span>
         </h1>
+      </div>
+      <div className="space-y-1">
+
         <h2 className="text-xl font-medium text-gray-700">Sign Up</h2>
       </div>
 
@@ -78,7 +117,14 @@ export default function SignUpForm() {
               <EnvelopeSimple size={20} className="text-gray-400" />
             }
           />
-          {errors.email && <p className="mt-2 text-sm text-red-600">{errors.email}</p>}
+          {errors.email && (
+            <p className="mt-2 text-sm text-red-600">
+              {errors.email}{" "}
+              <a href="/signin" className="font-medium text-indigo-600 hover:text-indigo-500">
+                Sign In
+              </a>
+            </p>
+          )}
         </div>
 
         <div>

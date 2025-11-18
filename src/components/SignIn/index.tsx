@@ -35,7 +35,7 @@ export default function LoginPage({ initialView = "signin" }: LoginPageProps) {
       case "forgot":
         return (
           <ForgotPasswordForm 
-            onBackToLogin={() => setFormView("signin")} 
+            // onBackToLogin={() => setFormView("signin")} 
           />
         );
       default:
@@ -49,7 +49,7 @@ export default function LoginPage({ initialView = "signin" }: LoginPageProps) {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
+    <div className="flex items-center justify-center min-h-screen bg-gray-50 pb-12 px-4 sm:px-6 lg:px-8">
       <div className="w-full max-w-6xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
           

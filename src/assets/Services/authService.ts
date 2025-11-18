@@ -29,6 +29,7 @@ const API_BASE_URL = `${url()}/users`;
 export const registerUser = async (credentials: UserCredentials): Promise<RegisterSuccessResponse> => {
   // Assuming the register endpoint also uses the centralized apiClient
   const response = await apiClient.post<RegisterSuccessResponse>(`${API_BASE_URL}/register`, credentials);
+  // console.log('Registration response:', response);
   return response.data;
 };
 
