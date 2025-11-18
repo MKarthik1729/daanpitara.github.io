@@ -66,14 +66,18 @@ const cardVariants: Variants = {
 
 const RecentPosts: React.FC = () => {
   return (
-    <div className="lg:p-8 sm:p-2 min-h-screen bg-gradient-to-b from-gray-50 via-white to-gray-100">
+    <div className=" sm:p-2 min-h-screen bg-gradient-to-b from-gray-50 via-white to-gray-100">
+      <div 
+      className="mb-10"
+      >
       <LatestInsights />
+      </div>
       <h1 className="text-4xl font-bold text-gray-900 text-center mb-12">
         Recent Posts
       </h1>
 
       <motion.div
-        className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 auto-rows-[1fr]"
+        className="grid gap-6 sm:grid-cols-2 auto-rows-[1fr]"
         variants={containerVariants}
         initial="hidden"
         animate="show"

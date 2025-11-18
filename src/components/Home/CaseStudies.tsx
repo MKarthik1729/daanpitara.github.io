@@ -19,7 +19,7 @@ const data = [
 
 const CaseStudies: React.FC = () => {
   return (
-    <div className="px-4 lg:px-15">
+    <div className="px-4 lg:px-15 mb-10">
     <div className="w-full bg-[#6ab0d6] pt-6 pb-12 rounded-2xl px-6 lg:px-12.5 ">
       {/* Title */}
       {/* <h2 className="text-center text-2xl font-semibold text-white mb-9">

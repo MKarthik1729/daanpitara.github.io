@@ -7,13 +7,15 @@ import Vision from './Vision';
 
 export default function About() {
   return (
-    <>
-        <AboutUs />
-        <Mission />
-        <Principles />
-        <Vision />
-        {/* <OurTeam /> */}
+    <div
+    className="px-4 sm:px-6 md:px-8 lg:px-pd-lg"
+    >
 
-    </>
+      <AboutUs />
+      <Mission />
+      <Principles />
+      <Vision />
+    </div>
+
   );
 }

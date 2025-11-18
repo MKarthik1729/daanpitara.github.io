@@ -50,13 +50,12 @@ function App() {
 
 
 function BasicLayout() {
+  // className="px-4 sm:px-6 md:px-8 lg:px-pd-lg"
   return (
-    <div className="px-4 sm:px-6 md:px-8 lg:px-pd-lg">
+    <div >
       <Navbar />
-      <div className="-mx-4 sm:-mx-6 md:-mx-8 lg:-mx-pd-lg">
       <Outlet />
         <Footer />
-      </div>
     </div>
   );
 }

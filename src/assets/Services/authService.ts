@@ -1,5 +1,6 @@
 import { url } from '../config';
 import apiClient from './apiClient'; // Import the centralized axios instance
+import useAuthStore from './authStore';
 
 // Define interfaces for the data structures to ensure type safety.
 interface UserCredentials {
@@ -41,15 +42,16 @@ export const registerUser = async (credentials: UserCredentials): Promise<Regist
  */
 export const loginUser = async (credentials: UserCredentials) => {
   const response = await apiClient.post<LoginSuccessResponse>(`${API_BASE_URL}/login`, credentials);
+  useAuthStore.getState().login();
   console.log('Login response:', response);
 };
 
 /**
- * Logs out the user by deleting the session cookie.
+ * Logs out the user by calling the logout endpoint and clearing the session.
  */
-export const logoutUser = (): void => {
-  // Deletes the 'sign' cookie to log the user out
-  document.cookie = "token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+export const logoutUser = async () => {
+  await apiClient.post(`${API_BASE_URL}/logout`);
+  useAuthStore.getState().logout();
 };
 
 /**
@@ -58,6 +60,5 @@ export const logoutUser = (): void => {
  * @returns True if the user is logged in, false otherwise.
  */
 export const isLoggedIn = (): boolean => {
-  // Checks for the existence of the 'sign' cookie.
-  return document.cookie.split(';').some((item) => item.trim().startsWith('sign='));
+  return useAuthStore.getState().isloggedin;
 };

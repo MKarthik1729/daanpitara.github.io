@@ -14,6 +14,7 @@ export default function Home() {
           <SlidingBarWhyUs />
           <OurStory />
           <CaseStudies />
+          
           <LatestInsights />
     </>
   );
