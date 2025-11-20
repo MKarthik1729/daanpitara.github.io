@@ -1,9 +1,9 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import { Input } from "@/assets/theme/InputField.tsx"; // Adjust path as needed
 import { validatePassword, confirmPassword } from "../Services/Validation.ts";
-import { registerUser } from "../../assets/Services/authService";
-import { getAuthErrorMessage } from "../../assets/Services/errorHandler";
+// import { registerUser } from "../../assets/Services/authService";
+// import { getAuthErrorMessage } from "../../assets/Services/errorHandler";
 import { 
   ArrowRight, 
   Eye, 
@@ -15,12 +15,16 @@ import {
 } from "@phosphor-icons/react";
 
 
-export default function SignUpForm() {
+interface SignUpFormProps {
+  onSignUpSuccess: (email: string, password: string) => void;
+  errors: Record<string, string | null>;
+  setErrors: React.Dispatch<React.SetStateAction<Record<string, string | null>>>;
+}
+
+export default function SignUpForm({ onSignUpSuccess, errors, setErrors}: SignUpFormProps) {
   const [showPassword, setShowPassword] = useState(false);
   const [showRepeatPassword, setShowRepeatPassword] = useState(false);
-  const [showSuccessPopup, setShowSuccessPopup] = useState(false);
-  const [errors, setErrors] = useState<Record<string, string | null>>({});
-  const navigate = useNavigate();
+  // const [errors, setErrors] = useState<Record<string, string | null>>({});
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -42,54 +46,12 @@ export default function SignUpForm() {
       });
       return; // Stop submission if there are errors
     }
+   onSignUpSuccess(email, password);
 
-    try {
-      await registerUser({ email, password });
-      setShowSuccessPopup(true);
-    } catch (error: any) {
-      console.error("Registration error:", error);
-      const message = error.message || 'An unknown error occurred.';
-      const statusCodeMatch = message.match(/status code (\d{3})/);
-      const statusCode = statusCodeMatch ? parseInt(statusCodeMatch[1], 10) : null;
-
-      if (statusCode === 409) {
-        const errorMessage = getAuthErrorMessage(409);
-        setErrors((prevErrors) => ({ ...prevErrors, email: errorMessage }));
-      } else {
-        const errorMessage = statusCode ? getAuthErrorMessage(statusCode) : message;
-        setErrors((prevErrors) => ({ ...prevErrors, api: errorMessage }));
-      }
-    }
   };
-
-  const handlePopupOk = () => {
-    setShowSuccessPopup(false);
-    navigate("/signin");
-  };
-
 
   return (
     <div className="w-full max-w-md space-y-6">
-      {showSuccessPopup && (
-        <div className="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full flex items-center justify-center">
-          <div className="p-8 border w-96 shadow-lg rounded-md bg-white">
-            <div className="text-center">
-              <h3 className="text-2xl font-bold text-gray-900">Success!</h3>
-              <div className="mt-2 px-7 py-3">
-                <p className="text-lg text-gray-500">You have been successfully registered.</p>
-              </div>
-              <div className="flex justify-center mt-4">
-                <button
-                  onClick={handlePopupOk}
-                  className="px-4 py-2 bg-blue-500 text-white text-base font-medium rounded-md w-full shadow-sm hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-300"
-                >
-                  OK
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
       {/* Titles */}
             <div className="mb-8">
         <h1 className="text-3xl font-bold text-black">

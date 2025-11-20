@@ -1,7 +1,7 @@
 import { useState } from "react";
 import SignInForm from "./SignInForm"; // Adjust path as needed
 import ForgotPasswordForm from "./ForgotPasswordForm"; // Adjust path
-import SignUpForm from "./SignUpForm"; // Adjust path
+import SignUp from "./SignUp"; 
 import Logo from "@/assets/daanpitara.jpg"; 
 
 // Define the possible states for the form
@@ -29,15 +29,16 @@ export default function LoginPage({ initialView = "signin" }: LoginPageProps) {
         );
       case "signup":
         return (
-          <SignUpForm 
+          <SignUp
           />
         );
       case "forgot":
         return (
           <ForgotPasswordForm 
-            // onBackToLogin={() => setFormView("signin")} 
+            onBackToLogin={() => setFormView("signin")} 
           />
         );
+      
       default:
         // Fallback to signin just in case
         return (

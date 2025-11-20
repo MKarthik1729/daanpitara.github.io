@@ -6,6 +6,7 @@ import useAuthStore from './authStore';
 interface UserCredentials {
   email: string;
   password: string;
+  otp?: string;
 }
 
 interface RegisterSuccessResponse {
