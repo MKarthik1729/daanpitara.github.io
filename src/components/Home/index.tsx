@@ -4,7 +4,7 @@ import SlidingBarWhyUs from "./SlidingBarWhyUs";
 import OurStory from "../About/OurStory";
 import LatestInsights from "../Blogs/LatestInsights";
 import AddBanner from "@/assets/Hero/AddBanner";
-import CaseStudies from "./CaseStudies";
+// import CaseStudies from "./CaseStudies";
 
 export default function Home() {
   return (
@@ -13,7 +13,7 @@ export default function Home() {
           <AddBanner />
           <SlidingBarWhyUs />
           <OurStory />
-          <CaseStudies />
+          {/* <CaseStudies /> */}
           
           <LatestInsights />
     </>

@@ -35,6 +35,7 @@ const Card: React.FC<CardProps> = ({
         relative 
         w-full md:min-w-[288px] md:max-w-[260px] 
         h-[220px] md:h-[224px]
+        flex-shrink-0
       ">
         <img
           src={img}
@@ -48,43 +49,49 @@ const Card: React.FC<CardProps> = ({
       </div>
 
       {/* RIGHT CONTENT */}
-      <div className="flex flex-col justify-between flex-1 pr-0 md:pr-4 w-full">
+      <div className="flex flex-col justify-between flex-1 pr-0 md:pr-4 w-full h-full">
 
-        <HeroTitle
-          heading={heading}
-          size={20}
-          color="#0A0A0A"
-          className="mb-3"
-        />
+        <div>
+          <HeroTitle
+            heading={heading}
+            size={20}
+            color="#0A0A0A"
+            className="mb-3"
+          />
 
-        <HeroDescription
-          text={description}
-          size={16}
-          color="#4A5565"
-          no_of_lines={3}
-          className="mb-6 md:mb-10"
-        />
+          <HeroDescription
+            text={description}
+            size={16}
+            color="#4A5565"
+            no_of_lines={3}
+            className="mb-6 md:mb-8"
+          />
+        </div>
 
         {/* BOTTOM SECTION */}
-        <div className="flex items-center justify-between w-full mt-auto">
+        <div className="flex items-center justify-between w-full mt-auto gap-4">
 
           {/* DATE + READ TIME */}
-          <div className="flex items-center gap-5 text-gray-500 text-sm">
-            <div className="flex items-center gap-1">
+          <div className="flex items-center gap-3 sm:gap-5 text-gray-500 text-sm flex-wrap">
+            <div className="flex items-center gap-1 whitespace-nowrap">
               <CalendarBlankIcon size={18} />
               <span>{date}</span>
             </div>
 
-            <div className="flex items-center gap-1">
+            <div className="flex items-center gap-1 whitespace-nowrap">
               <ClockIcon size={18} />
               <span>{readTime}</span>
             </div>
           </div>
 
-          {/* LEARN MORE BUTTON */}
+          {/* LEARN MORE BUTTON - FIXED */}
           <a
             href={readMoreLink || "#"}
-            className="bg-blue-500 text-white px-5 py-2 rounded-xl font-medium hover:bg-blue-600 transition"
+            className="
+              bg-blue-500 text-white px-5 py-2 rounded-xl font-medium 
+              hover:bg-blue-600 transition 
+              whitespace-nowrap flex-shrink-0
+            "
           >
             Learn more →
           </a>

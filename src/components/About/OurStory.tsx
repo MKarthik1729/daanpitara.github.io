@@ -1,33 +1,35 @@
 import HeroDescription from "@/assets/HeadingText/HeroDescription";
 import HeroTitle from "@/assets/HeadingText/HeroTitle";
 import DoubleImage from "@/assets/ImageDisplay/DoubleImage";
-import { HandshakeIcon } from "@phosphor-icons/react";
+import { UsersThree, MapPin, Heart, Handshake } from "@phosphor-icons/react";
 import SubmitButton from "@/assets/ButtonDesigns/SubmitButton";
 
 export default function Mission() {
 
-  const specialities = [
-    {
-      icon: <HandshakeIcon size={40} color="#2563EB" />,
-      count: "1000+",
-      title: "NGOs Supported",
-    },
-    {
-      icon: <HandshakeIcon size={40} color="#2563EB" />,
-      count: "1000+",
-      title: "NGOs Supported",
-    },
-    {
-      icon: <HandshakeIcon size={40} color="#2563EB" />,
-      count: "1000+",
-      title: "NGOs Supported",
-    },
-    {
-      icon: <HandshakeIcon size={40} color="#2563EB" />,
-      count: "1000+",
-      title: "NGOs Supported",
-    },
-  ]
+
+
+const specialities = [
+  {
+    icon: <UsersThree size={40} color="#2563EB" />,
+    count: "1000+",
+    title: "NGO's Connected",
+  },
+  {
+    icon: <MapPin size={40} color="#2563EB" />,
+    count: "50+",
+    title: "Cities Reached",
+  },
+  {
+    icon: <Heart size={40} color="#2563EB" weight="fill" />,
+    count: "10K+",
+    title: "Lives Impacted",
+  },
+  {
+    icon: <Handshake size={40} color="#2563EB" />,
+    count: "500+",
+    title: "CSR Partnerships",
+  },
+];
 
   return (
     <div className="flex flex-col lg:flex-row lg:items-start gap-6 lg:gap-30 p-4 md:p-8">
