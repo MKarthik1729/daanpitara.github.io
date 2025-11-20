@@ -24,10 +24,13 @@ interface SignUpFormProps {
 export default function SignUpForm({ onSignUpSuccess, errors, setErrors}: SignUpFormProps) {
   const [showPassword, setShowPassword] = useState(false);
   const [showRepeatPassword, setShowRepeatPassword] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   // const [errors, setErrors] = useState<Record<string, string | null>>({});
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (isSubmitting) return; // Prevent multiple submissions
+    setIsSubmitting(true);
     setErrors({}); // Clear previous errors
     const formData = new FormData(e.currentTarget);
     const data = Object.fromEntries(formData.entries());
@@ -44,10 +47,11 @@ export default function SignUpForm({ onSignUpSuccess, errors, setErrors}: SignUp
         password: passwordError,
         "repeat-password": repeatPasswordError,
       });
+      setIsSubmitting(false);
       return; // Stop submission if there are errors
     }
    onSignUpSuccess(email, password);
-
+   setIsSubmitting(false);
   };
 
   return (
@@ -145,15 +149,17 @@ export default function SignUpForm({ onSignUpSuccess, errors, setErrors}: SignUp
 
         <button
           type="submit"
+          disabled={isSubmitting}
           className="w-full flex justify-center items-center gap-2 rounded-md 
                      bg-gradient-to-r from-cyan-500 to-blue-500 px-4 py-3 
                      text-sm font-semibold text-white shadow-sm 
                      hover:opacity-90 focus-visible:outline 
                      focus-visible:outline-2 focus-visible:outline-offset-2 
-                     focus-visible:outline-indigo-600 transition-opacity"
+                     focus-visible:outline-indigo-600 transition-opacity
+                     disabled:opacity-50"
         >
-          Sign Up
-          <ArrowRight size={18} weight="bold" />
+          {isSubmitting ? "Signing Up..." : "Sign Up"}
+          {!isSubmitting && <ArrowRight size={18} weight="bold" />}
         </button>
       </form>
 
