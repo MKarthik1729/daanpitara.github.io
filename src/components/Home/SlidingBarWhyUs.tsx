@@ -36,27 +36,31 @@ export default function FeaturesTabs() {
   return (
     <div className="w-full py-10 text-gray-600 text-center lg:px-15 px-5" >
       <div className="relative mb-10">
-        <div
-          className="
-            flex gap-4 sm:gap-6 
-            justify-start sm:justify-center 
-            px-4 sm:px-0
-            overflow-x-auto sm:overflow-x-visible
-            overflow-y-hidden
-            scrollbar-hide
-            border-b border-gray-200
-            pb-2 mt-8
-          "
-        >
-          {tabs.map((tab) => (
-              <SubmitButton 
-              submit={()=>setActiveTab(tab.id)}
-              text={tab.label}
-              className={activeTab === tab.id ? "text-white bg-blue-500" : "text-gray-600"}
-              bgColor={activeTab === tab.id ? "var(--Primary, #0F71A8)" : undefined}
-              />
-          ))}
-        </div>
+<div
+  className="
+    flex gap-4 sm:gap-6 
+    justify-start sm:justify-center 
+    px-4 sm:px-0
+    overflow-x-auto sm:overflow-x-visible
+    overflow-y-hidden
+    scrollbar-hide
+    border-b border-gray-200
+    pb-2 mt-8
+  "
+>
+  {tabs.map((tab) => (
+    <SubmitButton 
+      submit={() => setActiveTab(tab.id)}
+      text={tab.label}
+      className={`
+        ${activeTab === tab.id ? "text-white bg-blue-500" : "text-gray-600"}
+        whitespace-nowrap
+      `}
+      bgColor={activeTab === tab.id ? "var(--Primary, #0F71A8)" : undefined}
+    />
+  ))}
+</div>
+
       </div>
 
       <div className="relative">

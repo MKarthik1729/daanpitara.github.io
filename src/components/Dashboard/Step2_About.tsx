@@ -82,12 +82,17 @@ const Step2_About: React.FC<Step2Props> = ({ onNext }) => {
 
   const [errors, setErrors] = useState<Record<string, string>>({});
 
-  const focusAreas = [
-    'Education',
-    'Healthcare',
-    'Livelihood',
-    'Disaster Relief',
-  ];
+const focusAreas = [
+  'Education',
+  'Healthcare',
+  'Livelihood',
+  'Disaster Relief',
+  'Child Welfare',
+  'Animal Welfare',
+  'Women Empowerment',
+  'Elderly Care',
+  'Others',
+];
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>

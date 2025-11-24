@@ -1,7 +1,7 @@
 import HeroDescription from "@/assets/HeadingText/HeroDescription";
 import HeroTitle from "@/assets/HeadingText/HeroTitle";
 import DoubleImage from "@/assets/ImageDisplay/DoubleImage";
-import { UsersThree, MapPin, Heart, Handshake } from "@phosphor-icons/react";
+import { UsersThreeIcon, MapPinIcon, HeartIcon, HandshakeIcon } from "@phosphor-icons/react";
 import SubmitButton from "@/assets/ButtonDesigns/SubmitButton";
 
 export default function Mission() {
@@ -10,22 +10,22 @@ export default function Mission() {
 
 const specialities = [
   {
-    icon: <UsersThree size={40} color="#2563EB" />,
+    icon: <UsersThreeIcon size={40} color="#2563EB" />,
     count: "1000+",
     title: "NGO's Connected",
   },
   {
-    icon: <MapPin size={40} color="#2563EB" />,
+    icon: <MapPinIcon size={40} color="#2563EB" />,
     count: "50+",
     title: "Cities Reached",
   },
   {
-    icon: <Heart size={40} color="#2563EB" weight="fill" />,
+    icon: <HeartIcon size={40} color="#2563EB" weight="fill" />,
     count: "10K+",
     title: "Lives Impacted",
   },
   {
-    icon: <Handshake size={40} color="#2563EB" />,
+    icon: <HandshakeIcon size={40} color="#2563EB" />,
     count: "500+",
     title: "CSR Partnerships",
   },
@@ -51,7 +51,7 @@ const specialities = [
           />
         </div>
         <div
-          className="flex flex-row items-center gap-10 self-stretch"
+          className="grid grid-cols-2 md:grid-cols-4 lg:flex lg:flex-row items-center gap-10 self-stretch"
         >
 
           {specialities.map((item, index) => (
