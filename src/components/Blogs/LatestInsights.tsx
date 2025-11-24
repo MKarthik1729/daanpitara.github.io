@@ -74,7 +74,7 @@ const LatestInsights: React.FC = () => {
         />
 
       {/* MAIN GRID – 2 COLUMNS */}
-      <div className="grid grid-cols-1 lg:grid-cols-[2fr_1fr] gap-14 max-w-7xl mx-auto px-14">
+      <div className="grid grid-cols-1 lg:grid-cols-[2fr_1fr] gap-14 max-w-7xl mx-auto lg:px-14 px-3">
 
         {/* LEFT SIDE – BLOG CARDS */}
         <motion.div
