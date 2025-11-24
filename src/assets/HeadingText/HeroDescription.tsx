@@ -52,8 +52,10 @@ const HeroDescription: React.FC<Props> = ({
     bottom: 0,
     right: 0,
     width: '50%',
+    minWidth: '80px',
+    maxWidth: '150px',
     textAlign: 'right',
-    background: 'linear-gradient(to top, #fff 50%, transparent)',
+    background: 'linear-gradient(to top,var(--color-white) 50%, transparent)',
     paddingTop: `${size}px`,
   };
 
