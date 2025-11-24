@@ -1,5 +1,5 @@
 import { useState } from "react";
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { Input } from "@/assets/theme/InputField.tsx"; // Adjust path as needed
 import { validatePassword, confirmPassword } from "../Services/Validation.ts";
 // import { registerUser } from "../../assets/Services/authService";
@@ -8,8 +8,8 @@ import {
   ArrowRight, 
   Eye, 
   EyeSlash, 
-  GoogleLogo, 
-  LinkedinLogo,
+  // GoogleLogo, 
+  // LinkedinLogo,
   EnvelopeSimple,
   Lock
 } from "@phosphor-icons/react";
@@ -22,6 +22,9 @@ interface SignUpFormProps {
 }
 
 export default function SignUpForm({ onSignUpSuccess, errors, setErrors}: SignUpFormProps) {
+
+  const navigate = useNavigate();
+
   const [showPassword, setShowPassword] = useState(false);
   const [showRepeatPassword, setShowRepeatPassword] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -164,7 +167,7 @@ export default function SignUpForm({ onSignUpSuccess, errors, setErrors}: SignUp
       </form>
 
       {/* Divider */}
-      <div className="relative my-6">
+      {/* <div className="relative my-6">
         <div className="absolute inset-0 flex items-center" aria-hidden="true">
           <div className="w-full border-t border-gray-300" />
         </div>
@@ -173,10 +176,10 @@ export default function SignUpForm({ onSignUpSuccess, errors, setErrors}: SignUp
             Or Continue with
           </span>
         </div>
-      </div>
+      </div> */}
 
       {/* Social Logins */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      {/* <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <button
           type="button"
           className="w-full flex justify-center items-center gap-3 rounded-md 
@@ -197,7 +200,7 @@ export default function SignUpForm({ onSignUpSuccess, errors, setErrors}: SignUp
           <LinkedinLogo size={20} weight="bold" />
           LinkedIn
         </button>
-      </div>
+      </div> */}
 
       {/* Sign In Link */}
       {/* <div className="text-center">
@@ -212,6 +215,18 @@ export default function SignUpForm({ onSignUpSuccess, errors, setErrors}: SignUp
           </button>
         </p>
       </div> */}
+            <div className="text-center mt-5">
+        <p className="text-sm text-gray-500">
+          Already have an account?{" "}
+          <button 
+            type="button"
+            onClick={() => navigate('/signin')}
+            className="font-medium text-gray-700 underline underline-offset-2 hover:text-black transition-colors"
+          >
+            Sign In
+          </button>
+        </p>
+      </div>
     </div>
   );
 }

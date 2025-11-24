@@ -7,8 +7,8 @@ import {
   ArrowRight, 
   Eye, 
   EyeSlash, 
-  GoogleLogo, 
-  LinkedinLogo,
+  // GoogleLogo, 
+  // LinkedinLogo,
   EnvelopeSimple,
   Lock
 } from "@phosphor-icons/react";
@@ -139,7 +139,7 @@ export default function SignInForm({ onForgotPasswordClick }: SignInFormProps) {
       </form>
 
       {/* Divider */}
-      <div className="relative my-8">
+      {/* <div className="relative my-8">
         <div className="absolute inset-0 flex items-center">
           <div className="w-full border-t border-gray-300" />
         </div>
@@ -150,7 +150,6 @@ export default function SignInForm({ onForgotPasswordClick }: SignInFormProps) {
         </div>
       </div>
 
-      {/* Social Logins */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
         <button
           type="button"
@@ -158,7 +157,7 @@ export default function SignInForm({ onForgotPasswordClick }: SignInFormProps) {
                      border border-gray-300 bg-white px-4 py-2.5 text-sm 
                      font-medium text-gray-700 shadow-sm hover:bg-gray-50 transition-colors"
         >
-          {/* Google Logo Colored */}
+
           <GoogleLogo size={20} weight="bold" className="text-red-500" />
           Google
         </button>
@@ -169,14 +168,14 @@ export default function SignInForm({ onForgotPasswordClick }: SignInFormProps) {
                      border border-gray-300 bg-white px-4 py-2.5 text-sm 
                      font-medium text-gray-700 shadow-sm hover:bg-gray-50 transition-colors"
         >
-          {/* LinkedIn Logo Colored */}
+
           <LinkedinLogo size={20} weight="bold" className="text-blue-700" />
           LinkedIn
         </button>
-      </div>
+      </div> */}
 
       {/* Sign Up Link using useNavigate */}
-      <div className="text-center">
+      <div className="text-center mt-5">
         <p className="text-sm text-gray-500">
           Don't have an account?{" "}
           <button 

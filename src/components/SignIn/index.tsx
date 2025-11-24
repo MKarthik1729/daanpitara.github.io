@@ -2,7 +2,8 @@ import { useState } from "react";
 import SignInForm from "./SignInForm"; // Adjust path as needed
 import ForgotPasswordForm from "./ForgotPasswordForm"; // Adjust path
 import SignUp from "./SignUp"; 
-import Logo from "@/assets/daanpitara.jpg"; 
+// import Logo from "@/assets/daanpitara.jpg"; 
+// import HeroDescription from "@/assets/HeadingText/HeroDescription";
 
 // Define the possible states for the form
 type FormView = "signin" | "signup" | "forgot";
@@ -62,14 +63,18 @@ export default function LoginPage({ initialView = "signin" }: LoginPageProps) {
           {/* Right side (Logo + Slogan) */}
           <div className="flex flex-col items-center justify-center space-y-6 
                         order-first md:order-last">
+            {/* <p className="text-2xl font-semibold italic text-gray-600 text-center"> */}
+            {/* <HeroDescription
+              text="Your Compassion Our Code!"
+              size={40}
+
+              /> */}
+            {/* </p> */}
             <img
-              src={Logo}
+              src={'/DaanPitara.png'}
               alt="DaanPitara Logo"
-              className="w-80 h-80 lg:w-96 lg:h-96 object-contain"
+              className="w-80 h-80 lg:w-96 lg:h-96 object-contain scale-200"
             />
-            <p className="text-2xl font-semibold italic text-gray-600 text-center">
-              "Your Compassion Our Code!"
-            </p>
           </div>
 
         </div>
