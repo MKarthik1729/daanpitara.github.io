@@ -38,62 +38,62 @@ const CardSection = ({ title, data, center = false }: CardSectionProps) => {
           }`}
         >
           {data.map((item, index) => (
-            <div
-              key={index}
-              // Added flex flex-col to ensure proper vertical flow
-              className="bg-white rounded-xl p-6 shadow-md border border-gray-200 w-full max-w-sm lg:max-w-[320px] flex flex-col"
-            >
-              <div className="mb-4">
-                <IconHolder icon={item.icon} />
-              </div>
-              
-              <div className="mb-2">
-                <HeroTitle heading={item.name} size={20} />
-              </div>
-              
-              <HeroDescription
-                text={item.info}
-                size={16}
-                color={"#6A7282"}
-              />
+<div
+  key={index}
+  className={`bg-white rounded-xl p-6 shadow-md border border-gray-200 w-full max-w-sm lg:max-w-[320px] flex flex-col
+    ${center ? "items-center text-center" : ""}
+  `}
+>
+  {/* ICON */}
+  <div className={`mb-4 ${center ? "flex justify-center" : ""}`}>
+    <IconHolder icon={item.icon} />
+  </div>
 
-              {/* LIST SECTION */}
-              {item.list && item.listIcon && (
-                // mt-6 = 24px (based on design annotations)
-                // gap-3 = 12px (based on design annotations)
-                <div className="mt-6 flex flex-col gap-3">
-                  {item.list.map((point, idx) => (
-                    <div key={idx} className="flex items-start gap-2.5">
-                      {/* shrink-0 ensures icon doesn't squish on long text */}
-                      <span className="shrink-0 mt-0.5 text-blue-500">
-                        {item.listIcon}
-                      </span>
-                      <HeroDescription 
-                        text={point} 
-                        size={14} 
-                        color="#4B5563" // Changed to dark gray for visibility on white card
-                      />
-                    </div>
-                  ))}
-                </div>
-              )}
+  {/* TITLE */}
+  <div className="mb-2">
+    <HeroTitle heading={item.name} size={20} />
+  </div>
 
-              {/* READ MORE LINK */}
-              {item.link && (
-                // mt-6 = 24px spacing from content above
-                <div
-                  className="mt-6 flex items-center gap-2 cursor-pointer hover:opacity-75 transition-opacity"
-                  onClick={() => navigate(item.link!)}
-                >
-                  <HeroDescription text={"Read More"} size={16} color="#000" />
-                  <ArrowRightIcon
-                    size={16}
-                    weight="bold"
-                    className="text-black"
-                  />
-                </div>
-              )}
-            </div>
+  {/* DESCRIPTION */}
+  <HeroDescription text={item.info} size={16} color="#6A7282" />
+
+  {/* LIST */}
+  {item.list && item.listIcon && (
+    <div
+      className={`mt-6 flex flex-col gap-3 ${
+        center ? "items-center" : ""
+      }`}
+    >
+      {item.list.map((point, idx) => (
+        <div
+          key={idx}
+          className={`flex gap-2.5 ${
+            center ? "justify-center" : "items-start"
+          }`}
+        >
+          <span className="shrink-0 mt-0.5 text-blue-500">
+            {item.listIcon}
+          </span>
+          <HeroDescription text={point} size={14} color="#4B5563" />
+        </div>
+      ))}
+    </div>
+  )}
+
+  {/* READ MORE */}
+  {item.link && (
+    <div
+      className={`mt-6 flex gap-2 cursor-pointer hover:opacity-75 transition-opacity
+        ${center ? "justify-center" : "items-center"}
+      `}
+      onClick={() => navigate(item.link!)}
+    >
+      <HeroDescription text="Read More" size={16} color="#000" />
+      <ArrowRightIcon size={16} weight="bold" className="text-black" />
+    </div>
+  )}
+</div>
+
           ))}
         </div>
       </div>
