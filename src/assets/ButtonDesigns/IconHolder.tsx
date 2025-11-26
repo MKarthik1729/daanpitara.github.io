@@ -2,10 +2,9 @@ import React from "react";
 
 interface GradientCardProps {
   icon: React.ReactNode;
-  children?: React.ReactNode;
 }
 
-const GradientCard: React.FC<GradientCardProps> = ({ icon, children }) => {
+const GradientCard: React.FC<GradientCardProps> = ({ icon}) => {
   return (
     <div
       className="
