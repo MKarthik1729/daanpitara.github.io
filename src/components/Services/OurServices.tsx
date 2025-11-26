@@ -16,7 +16,6 @@ export default function OurServices() {
         name: "Digital Branding & Online Presence",
         info: "Build a compelling digital identity that showcases your mission and attracts supporters.",
         list: [
-          "Professional website and social presence",
           "Brand storytelling and messaging",
           "SEO optimization for discoverability",
           "Digital marketing strategy",

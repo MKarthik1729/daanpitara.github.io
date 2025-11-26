@@ -28,9 +28,9 @@ export default function Navbar() {
   };
 
   const navLinks = [
-    // { name: "Home", path: "/" },
+    { name: "Home", path: "/" },
     { name: "Services", path: "/services" },
-    { name: "Fundraiser Form", path: "/fund-form" },
+    // { name: "Fundraiser Form", path: "/fund-form" },
     {name: "FAQ'S", path: "/faqs"},
     { name: "Contact Us", path: "/contact" },
     { name: "Blogs", path: "/blogs" },
