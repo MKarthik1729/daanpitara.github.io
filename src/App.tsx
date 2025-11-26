@@ -13,6 +13,7 @@ import SignIn from "./components/SignIn";
 import Contact from "./components/Contact";
 import Dashboard from "./components/Dashboard";
 import About from "./components/About";
+import Services from "./components/Services";
 import NotFoundPage from "./components/NotFound";
 import BlogPage from "./components/Blogs/BlogPage";
 import { AiLeverage } from "./components/Blogs/Pages/AiLeverage";
@@ -55,6 +56,7 @@ function App() {
 
 
             <Route path="/about" element={<About />} />
+            <Route path="/services" element={<Services />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="*" element={<NotFoundPage />} />
           </Route>

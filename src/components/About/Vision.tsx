@@ -1,7 +1,3 @@
-// import DoubleImage from "@/assets/ImageDisplay/DoubleImage";
-// import Globe from "@/assets/Images/globe.jpg";
-// import Tag from "@/assets/HeadingText/Tag";
-// import { HeartIcon, HandshakeIcon, GlobeHemisphereWestIcon } from "@phosphor-icons/react";
 import ImageCard from "@/assets/ImageDisplay/ImageCard";
 import SubsectionHeading from "@/assets/HeadingText/SubsectionHeading";
 

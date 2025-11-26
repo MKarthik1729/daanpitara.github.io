@@ -1,7 +1,4 @@
-// import Tag from "@/assets/HeadingText/Tag";
-// import SectionHeading from "@/assets/HeadingText/SectionHeading";
 import SubsectionHeading from "@/assets/HeadingText/SubsectionHeading";
-// import HighlightButton from "@/assets/ButtonDesigns/HighlightButton";
 import {
  GlobeIcon,
  HandshakeIcon,

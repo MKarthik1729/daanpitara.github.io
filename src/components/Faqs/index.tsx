@@ -36,7 +36,7 @@ export default function Faqs() {
 const paymentFAQ =  [
   {
     question: "Does joining DaanPitara require any initial cost?",
-    answer: "To join DaanPitara, a small NGO onboarding fee of ₹2,100 is required. This covers your verified NGO registration, onboarding, and digital listing on our best NGO support platform, ensuring you can access all our digital tools and fundraising features seamlessly."
+    answer: "To join DaanPitara, a small NGO onboarding fee of ₹5,100 is required. This covers your verified NGO registration, onboarding, and digital listing on our best NGO support platform, ensuring you can access all our digital tools and fundraising features seamlessly."
   },
   {
     question: "What’s included once my NGO is successfully registered?",

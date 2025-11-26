@@ -11,7 +11,7 @@ export default function Mission() {
 const specialities = [
   {
     icon: <UsersThreeIcon size={40} color="#2563EB" />,
-    count: "1000+",
+    count: "150+",
     title: "NGO's Connected",
   },
   {
@@ -20,13 +20,13 @@ const specialities = [
     title: "Cities Reached",
   },
   {
-    icon: <HeartIcon size={40} color="#2563EB" weight="fill" />,
-    count: "10K+",
+    icon: <HeartIcon size={40} color="#2563EB" />,
+    count: "1000+",
     title: "Lives Impacted",
   },
   {
     icon: <HandshakeIcon size={40} color="#2563EB" />,
-    count: "500+",
+    count: "10+",
     title: "CSR Partnerships",
   },
 ];
@@ -51,7 +51,7 @@ const specialities = [
           />
         </div>
         <div
-          className="grid grid-cols-2 md:grid-cols-4 lg:flex lg:flex-row items-center gap-10 self-stretch"
+          className="grid grid-cols-2 md:grid-cols-4 lg:flex lg:flex-row items-center lg:gap-6 self-stretch"
         >
 
           {specialities.map((item, index) => (
@@ -68,7 +68,7 @@ const specialities = [
 
               <HeroDescription
                 text={item.title}
-                size={11}
+                size={13}
               />
 
             </div>
