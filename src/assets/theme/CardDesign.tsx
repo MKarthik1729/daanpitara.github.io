@@ -10,7 +10,7 @@ const Card: React.FC<CardProps> = ({ children, className, width }) => {
       style={{ width }} // <-- apply inline width
       className={`
         flex
-        p-[30px_21px]
+        p-[21px_21px]
         flex-col
         gap-[10px]
         shrink-0

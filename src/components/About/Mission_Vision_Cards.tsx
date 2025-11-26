@@ -9,17 +9,20 @@ interface CardProps {
     desc?: string;
     width?: string;
     className?: string;
+    headingSize?:number;
 
 }
 
-export default function Aboutus_Card({icon, Heading, desc,width,className= ""}: CardProps) {
+export default function Aboutus_Card({icon, Heading, desc,width,className= "",headingSize}: CardProps) {
   return (
     <Card
     width={width}
     className={className}
     >
         <IconHolder icon={icon} />
-        {Heading && <HeroTitle heading={Heading}/>}
+        {Heading && <HeroTitle heading={Heading}
+        size={headingSize}
+        />}
         {desc && <HeroDescription text={desc}/>}
     </Card>
   );

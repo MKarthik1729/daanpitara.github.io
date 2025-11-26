@@ -7,15 +7,11 @@ import HeroDescription from '@/assets/HeadingText/HeroDescription';
 
 // import DaanPitara from '@/assets/Images/DaanPitara.png';
 
-export default function Landing() {
-  const title = (
-    <>
-      Trusted Digital Platform For NGOs &
-      Fundraising
-    </>
-  );
-  const description =
-    'DaanPitara empowers NGOs across the globe to embrace digital transformation, amplify their social impact, and attract meaningful CSR partnerships. Through powerful digital branding, smart fundraising tools, and transparent donor engagement systems, we help organizations build trust, raise sustainable funds, and create long-lasting change within their communities.';
+export default function Landing(
+  { title = "Trusted Digital Platform For NGOs & Fundraising",
+    description = 'DaanPitara empowers NGOs across the globe to embrace digital transformation, amplify their social impact, and attract meaningful CSR partnerships. Through powerful digital branding, smart fundraising tools, and transparent donor engagement systems, we help organizations build trust, raise sustainable funds, and create long-lasting change within their communities.'
+  }: { title?: string; description?: string }
+) {
   const primaryCta = {
     text: 'Register Your NGO Now',
     onClick: () => (window.location.href = '/register'),
@@ -45,20 +41,20 @@ export default function Landing() {
 
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mt-4">
             {primaryCta ? (
-            <div className="w-full sm:w-auto">
+              <div className="w-full sm:w-auto">
                 <HighlightButton
                   to="/signup"
                   text={primaryCta.text}
                   bgColor={primaryCta.bgColor}
                   className="lg:w-[265px] text-[#fff]"
-                  
+
                 />
               </div>
             ) : null}
             {secondaryCta ? (
               <div className="w-full sm:w-auto">
                 <SubmitButton
-                  submit={secondaryCta.onClick || (() => {})}
+                  submit={secondaryCta.onClick || (() => { })}
                   text={secondaryCta.text}
                   bgColor={secondaryCta.bgColor}
                   className="lg:w-[265px]"

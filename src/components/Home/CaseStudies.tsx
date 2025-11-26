@@ -1,21 +1,19 @@
 import React from "react";
-import { GlobeHemisphereWestIcon } from "@phosphor-icons/react";
 import CardSection from "@/assets/theme/CardSection";
 const data = [
   {
-    icon: <GlobeHemisphereWestIcon size={60} weight="duotone" className="text-green-600" />,
-    name: "Company Name",
-    info: "Company Info with confidence. We make it easy for NGOs to get online, be seen, and start creating impact faster.",
-  },
+    icon: <img src="/clients/vasundharaMaitri.png"  className="text-green-600 bg-black" />,
+    name: "Vasundhara Maitri ",
+    info: "Strengthening their voice for the planet. By improving their online presence, we made it simpler for supporters to discover their environmental initiatives."
+    },
   {
-    icon: <GlobeHemisphereWestIcon size={60} weight="duotone" className="text-green-600" />,
-    name: "Company Name",
-    info: "Company Info with confidence. We make it easy for NGOs to get online, be seen, and start creating impact faster.",
-  },
-  {
-    icon: <GlobeHemisphereWestIcon size={60} weight="duotone" className="text-green-600" />,
-    name: "Company Name",
-    info: "Company Info with confidence. We make it easy for NGOs to get online, be seen, and start creating impact faster.",
+    icon: <img src="/clients/matagujri.png"  className="text-green-600" />,
+    name: "Mata Gujri Ji Birdh Ashram",
+    info: "Supporting dignified elder care. We helped the organization present its work with clarity and trust, making it easier for donors to understand their impact.",
+  },  {
+    icon: <img src="/clients/JJEducation.png"  className="text-green-600" />,
+    name: "J.J Education Academy",
+    info: "Helping education reach more children. We enhanced their digital identity so parents, students, and well-wishers can easily connect with their programs.",
   },
 ];
 
@@ -27,9 +25,6 @@ const CaseStudies: React.FC = () => {
       data={data}
       center={true}
       />
-
-
-
     </div>
   );
 };

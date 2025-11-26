@@ -1,63 +1,70 @@
-// import AboutUs from './AboutUs';
 import OurStory from './OurStory';
-// import HowWeWork from './HowWeWork';
-// import Principles from './WhatWeDO';
-// import Vision from './Vision';
 import Landing from '../Home/Landing';
-// import Mission from './OurStory';
 import Mission_Vision_Cards from './Mission_Vision_Cards';
 import { EyeIcon, TargetIcon } from '@phosphor-icons/react';
 import HeroTitle from '@/assets/HeadingText/HeroTitle';
 import HeroDescription from '@/assets/HeadingText/HeroDescription';
 import WhyUs from './WhyUs';
-// import OurTeam from './OurTeam';
+
+// UPDATED IMPORTS — all icons now have `Icon` suffix
+import { 
+  MagnifyingGlassIcon, 
+  ShieldCheckIcon, 
+  TargetIcon as TargetFillIcon, 
+  HandFistIcon, 
+  UsersThreeIcon,
+  GlobeIcon,
+  HandshakeIcon,
+  ChartBarIcon
+} from "@phosphor-icons/react";
 
 export default function About() {
 
   const Values = [
     {
-      icon: <TargetIcon size={32} weight="fill" />,
-      Heading: "Our Mission",
+      icon: <MagnifyingGlassIcon size={32} weight="duotone" className="text-sky-600" />,
+      Heading: "Transparency",
     },
     {
-      icon: <TargetIcon size={32} weight="fill" />,
-      Heading: "Our Mission",
+      icon: <ShieldCheckIcon size={32} weight="duotone" className="text-sky-600" />,
+      Heading: "Trust",
     },
     {
-      icon: <TargetIcon size={32} weight="fill" />,
-      Heading: "Our Mission",
+      icon: <TargetFillIcon size={32} weight="duotone" className="text-sky-600" />,
+      Heading: "Impact",
     },
     {
-      icon: <TargetIcon size={32} weight="fill" />,
-      Heading: "Our Mission",
+      icon: <HandFistIcon size={32} weight="duotone" className="text-sky-600" />,
+      Heading: "Empowerment",
     },
     {
-      icon: <TargetIcon size={32} weight="fill" />,
-      Heading: "Our Mission",
+      icon: <UsersThreeIcon size={32} weight="duotone" className="text-sky-600" />,
+      Heading: "Collaboration",
     },
-
-  ]
-
-
-
+  ];
 
   return (
     <div>
 
-      <Landing />
+      <Landing
+        title="Empowering NGOs Through Digital Innovation & Transparency"
+        description='At DaanPitara, we connect nonprofits and purpose-driven brands across the world to foster strategic CSR partnerships — empowering each organization to grow their digital footprint, accelerate funding, and deepen donor trust. With tools for storytelling, online fundraising, streamlined documentation, and transparent engagement.'
+      />
+
       <OurStory />
       <WhyUs />
+
       <section className="flex flex-col lg:flex-row gap-14 justify-center items-center my-10">
         <Mission_Vision_Cards
           width="420px"
-          icon={<TargetIcon size={32} weight="fill" />}
+          icon={<TargetIcon size={32} weight="duotone" className="text-sky-600" />}
           Heading="Our Mission"
           desc="To empower NGOs through digital transformation and transparent donor engagement."
         />
 
         <Mission_Vision_Cards
           width="420px"
-          icon={<EyeIcon size={32} weight="fill" />}
+          icon={<EyeIcon size={32} weight="duotone" className="text-sky-600" />}
           Heading="Our Vision"
           desc="A world where every NGO thrives with the support of engaged and informed donors."
         />
@@ -68,11 +75,12 @@ export default function About() {
         <HeroDescription
           text="Comprehensive solutions designed to empower NGOs and enable meaningful CSR partnerships"
         />
+
         <div className="flex flex-wrap justify-center gap-6 my-10">
           {Values.map((item, index) => (
             <div
               key={index}
-              className="w-1/2 sm:w-auto flex justify-center" // 2 per row on mobile, auto width on larger screens
+              className="w-1/2 sm:w-auto flex justify-center"
             >
               <Mission_Vision_Cards
                 width="150px"
@@ -83,45 +91,40 @@ export default function About() {
             </div>
           ))}
         </div>
-
-
-
-
       </section>
 
       <section className='items-center text-center'>
-        <HeroTitle heading="Our Core Values" size={36} />
-        <HeroDescription
-          text="Comprehensive solutions designed to empower NGOs and enable meaningful CSR partnerships"
-        />
-        <div className='flex flex-row flex-wrap justify-center text-start items-start gap-6 my-10'>
+        <HeroTitle heading="How We Help You Create Impact" size={36} />
+        <HeroDescription text="The principles that guide everything we do" />
+
+        <div className='flex flex-row flex-wrap justify-center text-start items-start gap-6 my-6'>
           <Mission_Vision_Cards
             width="290px"
-            icon={<TargetIcon size={32} weight="fill" />}
-            Heading="Our Mission"
-            desc="To empower NGOs through digital transformation and transparent donor engagement."
+            icon={<GlobeIcon size={32} weight="duotone" className="text-sky-600" />}
+            Heading="Digital Branding & Online Presence"
+            desc="Build a compelling digital identity that attracts supporters and showcases your impact."
+            headingSize={20}
           />
 
           <Mission_Vision_Cards
             width="290px"
-            icon={<EyeIcon size={32} weight="fill" />}
-            Heading="Our Vision"
-            desc="A world where every NGO thrives with the support of engaged and informed donors."
+            icon={<HandshakeIcon size={32} weight="duotone" className="text-sky-600" />}
+            Heading="CSR Partnerships & Corporate Outreach"
+            desc="Connect with corporate partners aligned with your mission for meaningful collaborations."
+            headingSize={20}
           />
+
           <Mission_Vision_Cards
             width="290px"
-            icon={<TargetIcon size={32} weight="fill" />}
-            Heading="Our Mission"
-            desc="To empower NGOs through digital transformation and transparent donor engagement."
+            icon={<ChartBarIcon size={32} weight="duotone" className="text-sky-600" />}
+            Heading="NGO Growth Analytics"
+            desc="Track your performance with data-driven insights and actionable metrics."
+            headingSize={20}
           />
-
-
-
         </div>
 
       </section>
 
     </div>
-
   );
 }
