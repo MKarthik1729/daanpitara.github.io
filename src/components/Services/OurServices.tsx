@@ -1,8 +1,8 @@
-import { 
-  DesktopIcon, 
-  HandshakeIcon, 
-  ToolboxIcon, 
-  CheckIcon 
+import {
+  DesktopIcon,
+  HandshakeIcon,
+  ToolboxIcon,
+  CheckIcon
 } from "@phosphor-icons/react";
 
 import CardSection from "@/assets/theme/CardSection";
@@ -40,9 +40,9 @@ export default function OurServices() {
         name: "Fundraising Tools & Donor Engagement",
         info: "Streamline fundraising with tools that make giving easy, transparent, and impactful.",
         list: [
-          "Curated CSR opportunity matching",
-          "Corporate outreach support",
-          "Relationship management tools",
+          "Online donation and payment processing",
+          "Recurring donor management",
+          "Campaign creation & tracking tools",
         ],
         listIcon: <CheckIcon size={16} weight="bold" className="text-sky-600" />,
         link: '#'
