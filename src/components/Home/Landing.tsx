@@ -22,7 +22,7 @@ export default function Landing(
     text: 'Grow With DaanPitara',
     onClick: () => (window.location.href = '/fund-form'),
   };
-  const imageSrc = './CatchGlobe.png';
+  const imageSrc = '/main.mp4';
   const avatars = [
     { src: "./post/1.png" },
     { src: "./post/2.png" },
@@ -34,7 +34,7 @@ export default function Landing(
 
   return (
     <div className="w-full lg:px-15 px-5">
-      <section className="flex flex-col lg:flex-row items-center gap-8 lg:gap-40 py-9">
+      <section className="flex flex-col lg:flex-row items-center gap-8 lg:gap-20 py-9">
         <div className="flex max-w-3xl flex-col gap-6">
           <HeroTitle heading={title} size={40} />
           <HeroDescription text={description} size={18} no_of_lines={5} />
@@ -76,13 +76,12 @@ export default function Landing(
           ) : null}
         </div>
 
-        <div className="w-full lg:w-[426px] flex-shrink-0">
+        <div className="w-full lg:w-[526px] flex-shrink-0">
           {imageSrc ? (
-            <img
-              src={imageSrc}
-              alt="hero"
-              className="w-full h-full rounded-lg object-cover shadow-lg"
-            />
+            <video autoPlay loop muted playsInline>
+              <source src={imageSrc} type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
           ) : null}
         </div>
       </section>

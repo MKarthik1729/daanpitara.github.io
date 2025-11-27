@@ -39,8 +39,9 @@ const specialities = [
 
       <div className="flex-1 flex flex-col max-w-xl gap-10 items-center lg:items-start">
         <div className="lg:text-left">
-
+          <div className="mb-6">
           <HeroTitle heading="Our Story" />
+          </div>
           <HeroDescription
             text="Founded with a belief that every act of kindness deserves to be seen and supported, DaanPitara connects NGOs, donors, and CSR partners through technology and trust."
             size={20}

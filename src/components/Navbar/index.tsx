@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { NavLink, Link, useNavigate } from "react-router-dom";
 import { ListIcon, XIcon, UserCircleIcon } from "@phosphor-icons/react";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -30,14 +30,13 @@ export default function Navbar() {
   const navLinks = [
     { name: "Home", path: "/" },
     { name: "Services", path: "/services" },
-    // { name: "Fundraiser Form", path: "/fund-form" },
-    {name: "FAQ'S", path: "/faqs"},
+    { name: "FAQ'S", path: "/faqs" },
     { name: "Contact Us", path: "/contact" },
     { name: "Blogs", path: "/blogs" },
     { name: "About Us", path: "/about" },
   ];
 
-  // Close profile dropdown
+  // Close profile dropdown when clicking outside
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
       if (profileRef.current && !profileRef.current.contains(e.target as Node)) {
@@ -53,11 +52,7 @@ export default function Navbar() {
 
       {/* Logo */}
       <div className="text-xl font-bold flex items-center shrink-0">
-        <Link
-          to="/"
-          className="flex items-center"
-          onClick={() => setIsOpen(false)}
-        >
+        <Link to="/" className="flex items-center" onClick={() => setIsOpen(false)}>
           <div className="h-27 w-27 overflow-hidden inline-block">
             <img src={Logo} alt="DaanPitara Logo" className="h-full w-full object-cover scale-175" />
           </div>
@@ -67,16 +62,22 @@ export default function Navbar() {
       {/* Desktop Nav */}
       <div className="hidden lg:flex items-center gap-6 text-txt-black font-bold text-lg">
         {navLinks.map((link) => (
-          <Link
+          <NavLink
             key={link.name}
             to={link.path}
-            className="
-              relative inline-flex items-center justify-center gap-[10px] p-[10px] group hover:text-brand-blue transition duration-200
-              border-b-2 border-transparent hover:border-brand-blue
-            "
+            className={({ isActive }) =>
+              `
+              relative inline-flex items-center justify-center gap-[10px] p-[10px] transition duration-200
+              border-b-2 ${
+                isActive
+                  ? "border-brand-blue text-brand-blue"
+                  : "border-transparent hover:border-brand-blue hover:text-brand-blue"
+              }
+            `
+            }
           >
             {link.name}
-          </Link>
+          </NavLink>
         ))}
       </div>
 
@@ -134,31 +135,43 @@ export default function Navbar() {
             className="absolute top-full left-0 w-full bg-white flex flex-col p-6 lg:hidden gap-5 text-lg font-bold shadow-lg border-t"
           >
             {navLinks.map((link) => (
-              <Link
+              <NavLink
                 key={link.name}
                 to={link.path}
                 onClick={() => setIsOpen(false)}
-                className="
-                  relative inline-flex items-center justify-center gap-[10px] p-[10px] group hover:text-brand-blue transition duration-200
-                  border-b-2 border-transparent hover:border-brand-blue
-                "
+                className={({ isActive }) =>
+                  `
+                  relative inline-flex items-center justify-center gap-[10px] p-[10px] transition duration-200
+                  border-b-2 ${
+                    isActive
+                      ? "border-brand-blue text-brand-blue"
+                      : "border-transparent hover:border-brand-blue hover:text-brand-blue"
+                  }
+                `
+                }
               >
                 {link.name}
-              </Link>
+              </NavLink>
             ))}
 
             {isloggedin ? (
               <>
-                <Link
+                <NavLink
                   to="/dashboard"
                   onClick={() => setIsOpen(false)}
-                  className="
-                    relative inline-flex items-center justify-center gap-[10px] p-[10px] group hover:text-brand-blue transition duration-200
-                    border-b-2 border-transparent hover:border-brand-blue
-                  "
+                  className={({ isActive }) =>
+                    `
+                    relative inline-flex items-center justify-center gap-[10px] p-[10px] transition duration-200
+                    border-b-2 ${
+                      isActive
+                        ? "border-brand-blue text-brand-blue"
+                        : "border-transparent hover:border-brand-blue hover:text-brand-blue"
+                    }
+                  `
+                  }
                 >
                   Dashboard
-                </Link>
+                </NavLink>
 
                 <button
                   onClick={handleLogout}
