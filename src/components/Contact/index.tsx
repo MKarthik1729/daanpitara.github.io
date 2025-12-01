@@ -20,7 +20,6 @@ const Contact: React.FC = () => {
             <ContactForm />
           </div>
 
-          {/* Right Column (Map) */}
           {/* min-h added to ensure map has height on mobile/tablet before stacking */}
           <div className="h-full min-h-[500px] lg:min-h-0">
             <Location />

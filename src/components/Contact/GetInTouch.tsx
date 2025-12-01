@@ -43,12 +43,6 @@ const GetInTouch: React.FC = () => {
             heading="Get in Touch with the DaanPitara Team" 
             size={40} 
             />
-            {/* <p className="text-gray-500 text-base md:text-lg leading-relaxed">
-              We're here to listen, support, and collaborate with changemakers like you. 
-              Whether you're an NGO looking for digital growth, a CSR partner seeking 
-              impactful collaborations, or a donor eager to make a difference — the DaanPitara 
-              team is just a message away.
-            </p> */}
             <HeroDescription
               text="We're here to listen, support, and collaborate with changemakers like you. 
               Whether you're an NGO looking for digital growth, a CSR partner seeking 

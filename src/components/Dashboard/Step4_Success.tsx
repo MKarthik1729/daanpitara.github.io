@@ -1,5 +1,6 @@
 import React from 'react';
-import { ArrowRight, CheckCircle, EnvelopeSimple } from '@phosphor-icons/react';
+import { ArrowRightIcon, CheckCircleIcon, EnvelopeSimpleIcon } from '@phosphor-icons/react';
+import { useNavigate } from 'react-router-dom';
 
 interface Step4Props {
   onGoHome: () => void;
@@ -27,6 +28,7 @@ const WhatNextStep = ({
 );
 
 const Step4_Success: React.FC<Step4Props> = ({ onGoHome }) => {
+  const navigate = useNavigate();
   return (
     <div className="max-w-2xl mx-auto p-8 flex flex-col items-center text-center min-h-screen justify-center">
       {/* Step Indicator */}
@@ -37,7 +39,7 @@ const Step4_Success: React.FC<Step4Props> = ({ onGoHome }) => {
       </div>
 
       {/* Success Icon */}
-      <CheckCircle
+      <CheckCircleIcon
         size={80}
         className="text-blue-500 bg-blue-100 rounded-full p-2"
         weight="fill"
@@ -84,7 +86,7 @@ const Step4_Success: React.FC<Step4Props> = ({ onGoHome }) => {
         <div>
           <h4 className="font-semibold text-gray-900">Need Assistance?</h4>
           <div className="flex items-center text-sm mt-2">
-            <EnvelopeSimple size={16} className="text-gray-500 mr-2" />
+            <EnvelopeSimpleIcon size={16} className="text-gray-500 mr-2" />
             <a
               href="mailto:support@daanpitara.com"
               className="text-blue-600 hover:underline"
@@ -101,11 +103,15 @@ const Step4_Success: React.FC<Step4Props> = ({ onGoHome }) => {
       {/* Footer Buttons */}
       <div className="flex items-center gap-4 mt-8">
         <button
+          onClick={()=>{
+            navigate('/dashboard')
+          }} // Trigger going home
+
           type="button"
           className="inline-flex items-center px-6 py-2.5 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
         >
-          Track verification Status
-          <ArrowRight size={16} className="ml-2" weight="bold" />
+          Go to Dashboard
+          <ArrowRightIcon size={16} className="ml-2" weight="bold" />
         </button>
         <button
           type="button"
@@ -113,7 +119,7 @@ const Step4_Success: React.FC<Step4Props> = ({ onGoHome }) => {
           className="inline-flex items-center px-6 py-2.5 border border-gray-300 text-sm font-medium rounded-md shadow-sm text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
         >
           Return To Homepage
-          <ArrowRight size={16} className="ml-2" weight="bold" />
+          <ArrowRightIcon size={16} className="ml-2" weight="bold" />
         </button>
       </div>
     </div>

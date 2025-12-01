@@ -13,6 +13,7 @@ import {
   MapPin,
   Clock,
 } from "@phosphor-icons/react";
+import Logo from '@/assets/Images/DaanPitara.png'
 
 const Footer = () => {
   const SocialIconBox = ({ children }: React.PropsWithChildren<any>) => (
@@ -37,7 +38,7 @@ const Footer = () => {
           {/* BRAND */}
           <div className="lg:col-span-4 flex flex-col gap-6 pr-4">
             <div className="flex items-center gap-3">
-              <img src={'./DaanPitara.png'} alt="DaanPitara Logo" className="w-12 h-12 object-contain" />
+              <img src={Logo} alt="DaanPitara Logo" className="w-12 h-12 object-contain scale-220" />
               <h2 className="text-3xl font-bold text-gray-900 tracking-tight">DaanPitara</h2>
             </div>
             <div className="leading-relaxed opacity-80 pr-4">
